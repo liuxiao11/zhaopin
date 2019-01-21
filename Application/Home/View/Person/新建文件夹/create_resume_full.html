@@ -1,0 +1,52 @@
+<form action="" method="post">
+    全职简历 <br/><br/>
+    职位类别:
+    <select name="full_position" id="">
+        <?php foreach($full_position as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+
+    期望专业:
+    <select name="subject" id="">
+        <?php foreach($subject as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+
+    工作省市: <input type="text" name="work_province" /><input type="text" name="work_city" /><br/><br/>
+
+    期望薪资:
+    <select name="salary" id="">
+        <?php foreach($salary as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+
+    姓名: <input type="text" name="name" /><br/><br/>
+    手机号: <input type="text" name="phone" /><br/><br/>
+
+    性别
+    <select name="sex" id="">
+        <?php foreach($sex as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+    出生日期 <input type="text" name="birthday" /><br/><br/>
+
+    工作年限:
+    <select name="work_years" id="">
+        <?php foreach($work_years as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+
+    最高学历：
+    <select name="education" id="">
+        <?php foreach($education as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+    <input type="submit"/>
+</form>
+<form action=""></form>

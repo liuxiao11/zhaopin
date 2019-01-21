@@ -1,0 +1,45 @@
+[ 2019-01-12T09:13:55+08:00 ] 127.0.0.1 /home
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0088s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0068s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0010s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.062500s ]
+INFO: [ app_init ] --END-- [ RunTime:1.065430s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000977s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.058593s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.058593s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000977s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001953s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001953s ]
+
+[ 2019-01-12T09:13:57+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0039s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0039s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.103516s ]
+INFO: [ app_init ] --END-- [ RunTime:1.104493s ]
+
+[ 2019-01-12T09:51:57+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0039s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.021485s ]
+INFO: [ app_init ] --END-- [ RunTime:1.023437s ]
+

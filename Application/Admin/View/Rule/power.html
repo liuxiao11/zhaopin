@@ -1,0 +1,166 @@
+<include file="public/header"/>
+<style>
+    .quanxuan{
+        height:29px;line-height:29px;
+        border-bottom:1px solid rgb(235,243,249);background-color: rgb(73,141,197);
+        color:white;font-size: 14px;
+    }
+    .level-1{
+        height:29px;line-height:29px;
+        border-bottom:1px solid rgb(235,243,249);background-color: rgb(245,249,252);
+        color:#333;font-size: 14px;
+    }
+    .level-2{
+        height:29px;line-height: 29px;border-bottom:1px solid rgb(235,243,249);font-size: 14px;
+    }
+    .level-3{
+        height:29px;line-height: 29px;border-bottom:1px solid rgb(235,243,249);font-size: 14px;
+    }
+    .div-4{
+        height:29px;line-height: 29px;border-bottom:1px solid rgb(235,243,249);font-size: 14px;
+    }
+</style>
+<div class="quanxuan">
+    <input type="checkbox" class="checkbox all" style="margin-left:20px;vertical-align:middle;" />&nbsp;全选
+</div>
+<form action="" method="post">
+    <input type="hidden" name="gid" value="{$get.gid}" />
+    <?php foreach($rule_list as $k=>$v){ ?>
+    <div class="div-1">
+        <div class="level-1">
+            <input type="checkbox" class="checkbox lv1" name="rule[]" <?php if($v['is_have'] == 1){echo 'checked';} ?> value="{$v.id}" style="margin-left:20px;vertical-align:middle;" />&nbsp;{$v.title}
+        </div>
+
+        <?php foreach($v['children_two'] as $kk=>$vv){ ?>
+        <div class="div-2">
+            <div class="level-2" style="">
+                <input type="checkbox" lv-one="{$v.id}" class="checkbox lv2" name="rule[]" <?php if($vv['is_have'] == 1){echo 'checked';} ?> value="{$vv.id}" style="margin-left:40px;vertical-align:middle;" />&nbsp;{$vv.title}
+            </div>
+            <?php foreach($vv['children_three'] as $kkk=>$vvv){ ?>
+            <div class="div-3">
+                <div class="level-3">
+                    <input type="checkbox" lv-one="{$v.id}" lv-two="{$vv.id}" class="checkbox lv3" name="rule[]" <?php if($vvv['is_have'] == 1){echo 'checked';} ?> value="{$vvv.id}" style="margin-left:60px;vertical-align:middle;" />&nbsp;{$vvv.title}
+                </div>
+
+                <?php if($vvv['children_four']){ ?>
+                <div class="div-4">
+                    <?php foreach($vvv['children_four'] as $k4=>$v4){ ?>
+                    <input type="checkbox" lv-one="{$v.id}" lv-two="{$vv.id}" lv-thress="{$vvv.id}" name="rule[]" <?php if($v4['is_have'] == 1){echo 'checked';} ?> value="{$v4.id}" class="checkbox lv4" style="margin-left:60px;vertical-align:middle;" />&nbsp;{$v4.title}
+                    <?php } ?>
+                </div>
+                <?php } ?>
+                <div style="height:30px;"></div>
+            </div>
+            <?php } ?>
+        </div>
+        <?php } ?>
+    </div>
+    <?php } ?>
+    <div style="height:1px;background-color: rgb(21,101,157);"></div>
+    <input class="submit" type="submit" value="确认" style="float:right;margin-top:10px;border:0px;border-radius: 3px;width:54px;height:25px;line-height: 25px;background-color: rgb(88,176,68);color:white;font-size: 12px;text-align:center;" />
+</form>
+
+<script>
+    //第一层选中
+    $('.lv1').click(function(){
+        var one_checked = $(this).is(':checked');
+        var val = $(this).val();
+        if(one_checked){
+            $('.checkbox').each(function(){
+                if($(this).attr('lv-one') == val){
+                    $(this).attr("checked",'true');
+                }
+            })
+        }else{
+            $(".all").removeAttr("checked");
+            $('.checkbox').each(function(){
+                if($(this).attr('lv-one') == val){
+                    $(this).removeAttr("checked");
+                }
+            })
+        }
+    });
+
+    //第二层选中
+    $('.lv2').click(function(){
+        var two_checked = $(this).is(':checked');
+        var val = $(this).val();
+        var _this = $(this);
+        if(two_checked){
+            $('.checkbox').each(function(){
+                if($(this).val() == _this.attr('lv-one')){
+                    $(this).attr("checked",'true');
+                }
+                if($(this).attr('lv-two') == val){
+                    $(this).attr("checked",'true');
+                }
+            })
+        }else{
+            $(".all").removeAttr("checked");
+            $('.checkbox').each(function(){
+                if($(this).attr('lv-two') == val){
+                    $(this).removeAttr("checked");
+                }
+            })
+        }
+    });
+
+    //第三层选中
+    $('.lv3').click(function(){
+        var three_checked = $(this).is(':checked');
+        var val = $(this).val();
+        var _this = $(this);
+        if(three_checked){
+            $('.checkbox').each(function(){
+                if($(this).val() == _this.attr('lv-one')){
+                    $(this).attr("checked",'true');
+                }
+                if($(this).val() == _this.attr('lv-two')){
+                    $(this).attr("checked",'true');
+                }
+                if($(this).attr('lv-thress') == val){
+                    $(this).attr("checked",'true');
+                }
+            })
+        }else{
+            $(".all").removeAttr("checked");
+            $('.checkbox').each(function(){
+                if($(this).attr('lv-thress') == val){
+                    $(this).removeAttr("checked");
+                }
+            })
+        }
+    });
+
+    //第四层选中
+    $('.lv4').click(function(){
+        var four_checked = $(this).is(':checked');
+        var _this = $(this);
+        if(four_checked){
+            $('.checkbox').each(function(){
+                if($(this).val() == _this.attr('lv-one')){
+                    $(this).attr("checked",'true');
+                }
+                if($(this).val() == _this.attr('lv-two')){
+                    $(this).attr("checked",'true');
+                }
+                if($(this).val() == _this.attr('lv-thress')){
+                    $(this).attr("checked",'true');
+                }
+            })
+        }else{
+            $(".all").removeAttr("checked");
+        }
+    });
+
+    //全选
+    $(".all").click(function(){
+        var all_checked = $(this).is(':checked');
+        if(all_checked){
+            $('.checkbox').attr("checked",'true');
+        }else{
+            $('.checkbox').removeAttr("checked");
+        }
+    });
+</script>
+<include file="public/footer"/>

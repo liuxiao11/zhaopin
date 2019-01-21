@@ -1,0 +1,74 @@
+<include file="public/header"/>
+<form action="">
+
+    <select name="cat" style="width:auto;">
+        <option value="0">请选择</option>
+        <?php foreach($cat as $k=>$v){ ?>
+        <option value="{$k}" <?php if($k == $get['cat']){echo 'selected';} ?>>{$v}</option>
+        <?php } ?>
+    </select>&nbsp;
+    <select class="prov" name="work_province" style="width:auto;">
+        <option value="0">请选择</option>
+        <?php foreach($province_list as $k=>$v){ ?>
+        <option value="{$v.id}" <?php if($v['id'] == $get['work_province']){echo 'selected';} ?>>{$v.name}</option>
+        <?php } ?>
+    </select>&nbsp;
+    <select class="city" name="work_city" style="width:auto;">
+        <option value="0">请选择</option>
+        <?php foreach($city_list as $k=>$v){ ?>
+        <option value="{$v.id}" <?php if($v['id'] == $get['work_city']){echo 'selected';} ?>>{$v.name}</option>
+        <?php } ?>
+    </select>
+
+    <input type="submit" value="搜索" />
+</form>
+<table class="bjw_table" style="width:1200px;">
+    <tr>
+        <th>id</th>
+        <th>手机号</th>
+        <th>职位类别</th>
+        <th>工作名称</th>
+        <th>工作年限</th>
+        <th>学历</th>
+        <th>工作所在地</th>
+        <th>薪资</th>
+        <th>状态</th>
+        <th>创建时间</th>
+    </tr>
+    <?php foreach($invite_list as $k=>$v){ ?>
+    <tr invite_id="{$v.id}">
+        <td>{$v.id}</td>
+        <td>{$v.phone}</td>
+        <td>{$cat[$v['cat']]}</td>
+        <td>{$v.title}</td>
+        <td>{$work_years[$v['work_years']]}</td>
+        <td>{$education[$v['education']]}</td>
+        <td>{$v.work_province}-{$v.work_city}</td>
+        <td>{$salary[$v['salary']]}</td>
+        <td>
+            <span class="status"><input type="radio" value="1" <?php if($v['status'] == 1){echo 'checked';} ?> />未审核</span>
+            &nbsp;&nbsp;
+            <span class="status"><input type="radio" value="2" <?php if($v['status'] == 2){echo 'checked';} ?> />已审核</span>
+        </td>
+        <td>
+            <?php echo date("Y-m-d H:i:s",$v['create_time']); ?>
+        </td>
+    </tr>
+    <?php } ?>
+</table>
+<script>
+    //上架下架
+    $('.status').click(function(){
+        var invite_id = $(this).parent().parent().attr('invite_id');
+        $(this).parent().children('.status').children('input').removeAttr('checked');
+        $(this).children('input').attr("checked",'true');
+        var value = $(this).children('input').val();
+        $.post("/admin/ajax/edit_invite",{type:2,invite_id:invite_id,params:'status',value:value},function(data){
+            if(data.code == 1){
+                alert(data.message);
+                location.reload();
+            }
+        },'json');
+    });
+</script>
+<include file="public/footer"/>

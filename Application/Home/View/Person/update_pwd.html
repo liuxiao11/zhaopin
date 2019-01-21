@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/Public/css/jquery.pagination.css"/>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/area.css"/>
+    <link rel="stylesheet" href="/Public/css/my.css"/>
+</head>
+<body>
+<include file="public/person_header" />
+<div class="center-contain">
+    <div class="container clearfloat">
+        <include file="public/left" />
+        <div class="content-rt">
+            <h3>修改密码</h3>
+            <div class="form-box">
+                <form action="" method="post">
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label>原密码</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="text" name="old_pwd" placeholder="请输入原密码"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label>新密码</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="text" name="password" placeholder="请输入新密码"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf" style="height: 1px;">
+                        </div>
+                        <div class="col-rt lf">
+                            <button class="get-code" id="publish_01">确认</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--验证内容-->
+<div class="false">
+    <div class="false_text">
+        <div class="close" id="close"><img src="/Public/images/delete.png" alt=""/></div>
+        <p></p>
+    </div>
+</div>
+<include file="public/footer" />
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<!--<script src="/Public/js/form.js"></script>-->
+<script type="text/javascript" src="/Public/js/address.js"></script>
+<script src="/Public/js/my.js"></script>
+<script>
+    $(function(){
+        $("#sjld").sjld("#shenfen","#chengshi","#quyu");
+    });
+
+</script>
+</body>
+</html>

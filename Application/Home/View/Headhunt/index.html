@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/Public/css/swiper.min.css"/>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/my.css"/>
+</head>
+<body>
+<include file="public/person_header" />
+<div class="center-contain">
+    <div class="container clearfloat">
+        <include file="public/headhunt_left" />
+        <div class="content-rt">
+            <h3>首页</h3>
+            <div class="content">
+                <div class="notice">
+                    <p>公告：今天发布的内容公告内容可编辑....</p>
+                </div>
+                <div class="main-information clearfloat">
+                    <div class="pic-box lf">
+                        <img src="/Public/images/photo_03.jpg" alt=""/>
+                    </div>
+                    <div class="information lf">
+                        <h4>{$user_info.nickname}</h4>
+                        <div class="tel-box clearfloat">
+                            <div class="tel lf">我的手机：<span>{$user_info.phone}</span></div>
+                            <div class="company lf">个人所在地：<span>{$key_city_list[$headhunt_info['province']]['name']}-{$key_city_list[$headhunt_info['city']]['name']}</span></div>
+                        </div>
+                        <div class="time">注册时间：<span><?php echo date("Y-m-d",$user_info['create_time']); ?></span></div>
+                    </div>
+                </div>
+                <div class="count">
+                    <ul class="clearfloat">
+                        <li class="clearfloat">
+                            <img src="/Public/images/infor_03.png" alt="" class="lf"/>
+                            <div class="num lf">
+                                <p>企业查看</p>
+                                <p style="color: #ff4209">10</p>
+                            </div>
+                        </li>
+                        <li class="clearfloat">
+                            <img src="/Public/images/infor_05.png" alt="" class="lf"/>
+                            <div class="num lf">
+                                <p>中介查看</p>
+                                <p style="color: #ff4209">10</p>
+                            </div>
+                        </li>
+                        <li class="clearfloat">
+                            <img src="/Public/images/infor_07.png" alt="" class="lf"/>
+                            <div class="num lf">
+                                <p>投递职位</p>
+                                <p style="color: #ff4209">50</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="old-information">
+                    <h4>平台已发布需求信息</h4>
+                    <div class="scroll_main">
+                        <div class="scroll_wrap">
+                            <div class="scroll_cont scroll_cont_01">
+                                <ul>
+                                    <li class="clearfloat">
+                                        <a href="" class="lf">汇总：2018年“双特”“三特”企业共85家深圳地基起重钢结构机电城市道路</a>
+                                        <div class="t rt">2018-12-06</div>
+                                    </li>
+                                    <li class="clearfloat">
+                                        <a href="" class="lf">汇总：2018年“双特”“三特”企业共85家深圳地基起重钢结构机电城市道路</a>
+                                        <div class="t rt">2018-12-06</div>
+                                    </li>
+                                    <li class="clearfloat">
+                                        <a href="" class="lf">汇总：2018年“双特”“三特”企业共85家深圳地基起重钢结构机电城市道路</a>
+                                        <div class="t rt">2018-12-06</div>
+                                    </li>
+                                    <li class="clearfloat">
+                                        <a href="" class="lf">1汇总：2018年“双特”“三特”企业共85家深圳地基起重钢结构机电城市道路</a>
+                                        <div class="t rt">2018-12-06</div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="scroll_bar scroll_bar_01">
+                                <div class="scroll_slider scroll_slider_01"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="new-information">
+                    <h4>最新招聘信息</h4>
+                    <div class="scroll_main">
+                        <div class="scroll_wrap">
+                            <div class="scroll_cont scroll_cont_02">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>发布时间</th>
+                                        <th>招聘名称</th>
+                                        <th>薪资</th>
+                                        <th>地区</th>
+                                        <th>类型</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>2018-11-27</td>
+                                        <td>招聘名称招聘名称</td>
+                                        <td>5000-6000</td>
+                                        <td>北京市-西城</td>
+                                        <td>一级建造师</td>
+                                        <td><a href="">点击查看</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-27</td>
+                                        <td>招聘名称招聘名称</td>
+                                        <td>5000-6000</td>
+                                        <td>北京市-西城</td>
+                                        <td>一级建造师</td>
+                                        <td><a href="">点击查看</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-27</td>
+                                        <td>招聘名称招聘名称</td>
+                                        <td>5000-6000</td>
+                                        <td>北京市-西城</td>
+                                        <td>一级建造师</td>
+                                        <td><a href="">点击查看</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-27</td>
+                                        <td>招聘名称招聘名称</td>
+                                        <td>5000-6000</td>
+                                        <td>北京市-西城</td>
+                                        <td>一级建造师</td>
+                                        <td><a href="">点击查看</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-27</td>
+                                        <td>招聘名称招聘名称</td>
+                                        <td>5000-6000</td>
+                                        <td>北京市-西城</td>
+                                        <td>一级建造师</td>
+                                        <td><a href="">点击查看</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-27</td>
+                                        <td>招聘名称招聘名称</td>
+                                        <td>5000-6000</td>
+                                        <td>北京市-西城</td>
+                                        <td>一级建造师</td>
+                                        <td><a href="">点击查看</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-27</td>
+                                        <td>招聘名称招聘名称</td>
+                                        <td>5000-6000</td>
+                                        <td>北京市-西城</td>
+                                        <td>一级建造师</td>
+                                        <td><a href="">点击查看</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-27</td>
+                                        <td>招聘名称招聘名称</td>
+                                        <td>5000-6000</td>
+                                        <td>北京市-西城</td>
+                                        <td>一级建造师</td>
+                                        <td><a href="">点击查看</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-27</td>
+                                        <td>招聘名称招聘名称</td>
+                                        <td>5000-6000</td>
+                                        <td>北京市-西城</td>
+                                        <td>一级建造师</td>
+                                        <td><a href="">点击查看</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-27</td>
+                                        <td>招聘名称招聘名称</td>
+                                        <td>5000-6000</td>
+                                        <td>北京市-西城</td>
+                                        <td>一级建造师</td>
+                                        <td><a href="">点击查看</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-27</td>
+                                        <td>1招聘名称招聘名称</td>
+                                        <td>5000-6000</td>
+                                        <td>北京市-西城</td>
+                                        <td>一级建造师</td>
+                                        <td><a href="">点击查看</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2018-11-27</td>
+                                        <td>2招聘名称招聘名称</td>
+                                        <td>5000-6000</td>
+                                        <td>北京市-西城</td>
+                                        <td>一级建造师</td>
+                                        <td><a href="">点击查看</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="scroll_bar scroll_bar_02">
+                                <div class="scroll_slider scroll_slider_02"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="public/footer" />
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<script src="/Public/js/scrollBar.js"></script>
+<script src="/Public/js/my.js"></script>
+<script type="text/javascript">
+    function scroll(contentSelector,barSelector,sliderSelector){
+        return new CusScrollBar({
+            contentSelector: contentSelector, //滚动内容区
+            barSelector: barSelector, //滚动条
+            sliderSelector: sliderSelector //滚动滑块
+        });
+    }
+    scroll('.scroll_cont_01','.scroll_bar_01','.scroll_slider_01');
+    scroll('.scroll_cont_02','.scroll_bar_02','.scroll_slider_02');
+</script>
+</body>
+</html>

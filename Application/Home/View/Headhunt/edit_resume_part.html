@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/Public/css/jquery.pagination.css"/>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/area.css"/>
+    <link rel="stylesheet" href="/Public/css/my.css"/>
+</head>
+<body>
+<include file="public/person_header" />
+<div class="center-contain">
+    <div class="container clearfloat">
+        <include file="public/headhunt_left" />
+        <div class="content-rt">
+            <h3>发布信息</h3>
+            <div class="form-box">
+                <form action="" method="post">
+                    <div class="radio-box">
+                        <a href="/publish/resume_head_type.html" class="job active">兼职简历</a>
+                        <a href="/headhunt/resume_full.html" class="job">全职简历</a>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label for="price1">姓名</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="text" name="name" value="{$resume_info.name}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label>证书所在地</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <div id="city">
+                                <select class="prov" name="cert_province" style="width:auto;">
+                                    <option value="0">请选择</option>
+                                    <?php foreach($province_list as $k=>$v){ ?>
+                                    <option value="{$v.id}" <?php if($v['id'] == $resume_info['cert_province']){echo 'selected';} ?>>{$v.name}</option>
+                                    <?php } ?>
+                                </select>&nbsp;
+                                <select class="city" name="cert_city" style="width:auto;">
+                                    <option value="0">请选择</option>
+                                    <?php foreach($city_list as $k=>$v){ ?>
+                                    <option value="{$v.id}" <?php if($v['id'] == $resume_info['cert_city']){echo 'selected';} ?>>{$v.name}</option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label for="price1">期待价格</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="text" id="price1" name="salary" value="{$resume_info.salary}"/>元/年
+                        </div>
+                    </div>
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label>职称</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <div class="selector s">
+                                <select name="job_title" id="" style="width: 100px;">
+                                    <?php foreach($job_title as $k=>$v){ ?>
+                                    <option value="{$k}" <?php if($k==$resume_info['job_title']){echo 'selected';} ?>>{$v}</option>
+                                    <?php } ?>
+                                </select>
+                                <i><img src="/Public/images/down.jpg" alt=""/></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label for="special">详细说明</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <textarea name="intro" id="special">{$resume_info.intro}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label for="c_tel">手机号码</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="text" id="c_tel" name="phone" value="{$resume_info.phone}"/>
+                        </div>
+                    </div>
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label for="c_code">验证码</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="text" id="c_code" placeholder="请输入手机验证码"/>
+                            <button class="get-code">获取手机验证码</button>
+                        </div>
+                    </div>
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf" style="height: 1px;">
+                        </div>
+                        <div class="col-rt lf">
+                            <button class="get-code" id="publish_01">发布</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--验证内容-->
+<div class="false">
+    <div class="false_text">
+        <div class="close" id="close"><img src="/Public/images/delete.png" alt=""/></div>
+        <p></p>
+    </div>
+</div>
+<include file="public/footer" />
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<script src="/Public/js/my.js"></script>
+<script>
+    $('.prov').change(function(){
+        var province = $(this).val();
+        $('.city').empty();
+        if(province == 0){
+            return ;
+        }
+
+        $.post("/admin/ajax/ajax_city",{province:province},function(data){
+            if(data.code == 1){
+                alert(data.message);
+                return ;
+            }
+
+            $('.city').append("<option value=\"0\">请选择</option>");
+            for(var i=0;i<data.data.length;i++){
+                $('.city').append("<option value=\""+data.data[i].id+"\">"+data.data[i].name+"</option>");
+            }
+        },'json')
+    })
+</script>
+</body>
+</html>

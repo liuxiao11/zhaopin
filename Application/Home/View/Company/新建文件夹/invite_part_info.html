@@ -1,0 +1,25 @@
+全职招聘-招聘信息-详情 <br/><br/>
+<div style="border:1px solid red;">
+    <form action="" method="post">
+        <input type="hidden" name="id" value="{$invite_info.id}" />
+        公司名称 <input type="text" name="company_name" value="{$invite_info.company_name}" /><br/><br/>
+        称呼 <input type="text" name="call" value="{$invite_info.call}" /><br/><br/>
+        职位类别:
+        <select name="position_one" id="">
+            <?php foreach($position_one as $k=>$v){ ?>
+            <option <?php if($k==$invite_info['position_one']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php } ?>
+        </select>
+        <select name="position_two" id="">
+            <?php foreach($position_two[$invite_info['position_one']] as $k=>$v){ ?>
+            <option <?php if($k==$invite_info['position_two']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php } ?>
+        </select><br/><br/>
+        工作地址
+        <input type="text" name="company_province" value="{$invite_info.company_province}" />
+        <input type="text" name="company_city" value="{$invite_info.company_city}" /><br/><br/>
+        特殊需求
+        <textarea name="content" id="" cols="30" rows="10">{$invite_info.content}</textarea><br/><br/>
+        <input type="submit"/>
+    </form>
+</div>

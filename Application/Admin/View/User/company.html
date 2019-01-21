@@ -1,0 +1,52 @@
+<include file="public/header"/>
+<a href="/admin/user/add_company" style="text-decoration:none;"><span style="display:inline-block;width:80px;height:30px;line-height: 30px;background-color: rgb(19,100,157);border-radius: 3px;text-align: center;color:white;">添加</span></a>
+<div style="height:20px;"></div>
+<table class="bjw_table">
+    <tr>
+        <th>id</th>
+        <th>昵称</th>
+        <th>手机号</th>
+        <th>状态</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($user_list as $k=>$v){ ?>
+    <tr user_id="{$v.id}">
+        <td>{$v.id}</td>
+        <td>{$v.nickname}</td>
+        <td>{$v.phone}</td>
+        <td>
+            <span class="status"><input type="radio" value="1" <?php if($v['status'] == 1){echo 'checked';} ?> />正常</span>&nbsp;&nbsp;
+            <span class="status"><input type="radio" value="2" <?php if($v['status'] == 2){echo 'checked';} ?> />不可用</span>
+        </td>
+        <td>
+            <a class="a-edit" href="/admin/user/edit_company/id/{$v.id}" title="修改"></a>
+            <a class="a-del del_company" href="javascript:void(0);" del_id="{$v.id}" title="删除"></a>
+        </td>
+    </tr>
+    <?php } ?>
+</table>
+<script>
+    $('.del_company').click(function(){
+        var id=$(this).attr('del_id');
+        if(!confirm('确定删除吗？')){
+            return ;
+        }
+
+        window.location.href = '/admin/user/del_company/id/'+id;
+    });
+
+    //上架下架
+    $('.status').click(function(){
+        var user_id = $(this).parent().parent().attr('user_id');
+        $(this).parent().children('.status').children('input').removeAttr('checked');
+        $(this).children('input').attr("checked",'true');
+        var value = $(this).children('input').val();
+        $.post("/admin/ajax/edit_user_field",{user_id:user_id,params:'status',value:value},function(data){
+            if(data.code == 1){
+                alert(data.message);
+                location.reload();
+            }
+        },'json')
+    });
+</script>
+<include file="public/footer"/>

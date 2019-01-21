@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/Public/css/jquery.pagination.css"/>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/area.css"/>
+    <link rel="stylesheet" href="/Public/css/my.css"/>
+</head>
+<body>
+<include file="public/header" />
+<div class="center-contain bg">
+    <div class="flow-type">
+        <div style="width: 1200px;background: #ffffff;margin: 0 auto">
+            <div class="flow-box">
+                <div class="cell">
+                    <b>1</b>
+                    <p>选择类型</p>
+                </div>
+                <img src="/Public/images/point_03.png" alt=""/>
+                <div class="cell active">
+                    <b>2</b>
+                    <p>选择分类</p>
+                </div>
+                <img src="/Public/images/point_03.png" alt=""/>
+                <div class="cell">
+                    <b>3</b>
+                    <p>填写信息</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container clearfloat">
+        <div class="content-rt flow">
+            <h4>选择分类</h4>
+            <div class="assortment">
+                <div class="clearfloat" style="width: 530px;margin: 0 auto">
+                    <ul class="lf">
+                        <?php foreach($cat_one as $k=>$v){ ?>
+                        <?php if($k%2 == 1){ ?>
+                        <li><span>{$v}</span>
+                            <div class="cell">
+                                <span>{$v}</span>
+                                <?php foreach($cat_two[$k] as $kk=>$vv){ ?>
+                                <a href="{:U('/home/headhunt/invite_part',array('type'=>$k.'-'.$kk))}">{$vv}</a>
+                                <?php } ?>
+                            </div>
+                        </li>
+                        <?php } ?>
+                        <?php } ?>
+                    </ul>
+                    <ul class="rt">
+                        <?php foreach($cat_one as $k=>$v){ ?>
+                        <?php if($k%2 == 0){ ?>
+                        <li><span>{$v}</span>
+                            <div class="cell">
+                                <span>{$v}</span>
+                                <?php foreach($cat_two[$k] as $kk=>$vv){ ?>
+                                <a href="{:U('/home/headhunt/invite_part',array('type'=>$k.'-'.$kk))}">{$vv}</a>
+                                <?php } ?>
+                            </div>
+                        </li>
+                        <?php } ?>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--验证内容-->
+<div class="false">
+    <div class="false_text">
+        <div class="close" id="close"><img src="/Public/images/delete.png" alt=""/></div>
+        <p></p>
+    </div>
+</div>
+<include file="public/footer" />
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<script src="/Public/js/form.js"></script>
+<script type="text/javascript" src="/Public/js/address.js"></script>
+<script src="/Public/js/my.js"></script>
+<script>
+    $(function(){
+        $("#sjld").sjld("#shenfen","#chengshi","#quyu");
+
+    });
+</script>
+</body>
+</html>

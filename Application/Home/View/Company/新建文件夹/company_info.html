@@ -1,0 +1,14 @@
+公司资料 <br/><br/>
+<div style="border:1px solid red;">
+    <form action="" method="post">
+        <input type="hidden" name="id" value="{$company_info.id}" />
+        公司名称 <input type="text" name="name" value="{$company_info.name}" /><br/><br/>
+        公司简介 <textarea name="intro" id="" cols="30" rows="10">{$company_info.intro}</textarea><br/><br/>
+        公司所在
+        <input type="text" name="province" value="{$company_info.province}" />
+        <input type="text" name="city" value="{$company_info.city}" /><br/><br/>
+        详细地址 <input type="text" name="address" value="{$company_info.address}" /><br/><br/>
+        公司规模 <input type="text" name="scale" value="{$company_info.scale}" /><br/><br/>
+        <input type="submit"/>
+    </form>
+</div>

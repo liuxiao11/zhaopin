@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/jquery.pagination.css"/>
+    <link rel="stylesheet" href="/Public/css/swiper.min.css"/>
+    <link rel="stylesheet" href="/Public/css/my.css"/>
+    <link rel="stylesheet" href="/Public/css/inside.css"/>
+</head>
+<body>
+<include file="public/header" />
+<div class="main-box">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">资讯</a></li>
+        </ul>
+        <div class="nav">
+            <a href="/resume/part.html" class="active">兼职简历</a>
+            <a href="/resume/full.html">全职简历</a>
+            <a href="/news/lists.html">政策资讯</a>
+        </div>
+        <div class="section">
+            <div class="selection">
+                <div class="select-type clearfloat params_list" params="cat_one" active="{$get['cat_one']}">
+                    <div class="title lf">分类1</div>
+                    <div class="select-cont lf">
+                        <a href="javascript:void(0);" class="filter <?php if(!$get['cat_one']){echo 'active';} ?>" data_data="0">不限</a>
+                        <?php foreach($cat_one as $k=>$v){ ?>
+                        <a href="javascript:void(0);" class="filter <?php if($get['cat_one'] == $k){echo 'active';} ?>" data_data="{$k}">{$v}</a>
+                        <?php } ?>
+                    </div>
+                </div>
+
+                <?php if($get['cat_one']){ ?>
+                <div class="select-type clearfloat params_list" params="cat_two" active="{$get['cat_two']}">
+                    <div class="title lf">分类2</div>
+                    <div class="select-cont lf">
+                        <a href="javascript:void(0);" class="filter <?php if(!$get['cat_two']){echo 'active';} ?>" data_data="0">不限</a>
+                        <?php foreach($cat_two[$get['cat_one']] as $k=>$v){ ?>
+                        <a href="javascript:void(0);" class="filter <?php if($get['cat_two'] == $k){echo 'active';} ?>" data_data="{$k}">{$v}</a>
+                        <?php } ?>
+                    </div>
+                </div>
+                <?php } ?>
+
+                <div class="select-type clearfloat params_list" params="cert_province" active="{$get['cert_province']}">
+                    <div class="title lf">省份</div>
+                    <div class="select-cont lf">
+                        <a href="javascript:void(0);" class="filter <?php if(!$get['cert_province']){echo 'active';} ?>" data_data="0">不限</a>
+                        <?php foreach($province_list as $k=>$v){ ?>
+                        <a href="javascript:void(0);" class="filter <?php if($get['cert_province'] == $v['id']){echo 'active';} ?>" data_data="{$v.id}">{$v.name}</a>
+                        <?php } ?>
+                    </div>
+                </div>
+
+                <?php if($get['cert_province'] && $city_list){ ?>
+                <div class="select-type clearfloat params_list" params="cert_city" active="{$get['cert_city']}">
+                    <div class="title lf">城市</div>
+                    <div class="select-cont lf">
+                        <a href="javascript:void(0);" class="filter <?php if(!$get['cert_city']){echo 'active';} ?>" data_data="0">不限</a>
+                        <?php foreach($city_list as $k=>$v){ ?>
+                        <a href="javascript:void(0);" class="filter <?php if($get['cert_city'] == $v['id']){echo 'active';} ?>" data_data="{$v.id}">{$v.name}</a>
+                        <?php } ?>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+            <div class="job-table">
+                <table id="cv">
+                    <?php foreach($resume_list as $k=>$v){ ?>
+                    <tr>
+                        <td><a href="/resume/look_part/id/{$v.id}">{$v.name}</a></td>
+                        <td>{$cat_one[$v['cat_one']]}-{$cat_two[$v['cat_one']][$v['cat_two']]}</td>
+                        <td>{$job_title[$v['job_title']]}</td>
+                        <td>{$v.salary}</td>
+                        <td><?php echo date("Y-m-d H:i:s",$v['create_time']); ?></td>
+                    </tr>
+                    <?php } ?>
+                </table>
+            </div>
+            <!--分页器-->
+            <include file="public/page" />
+
+        </div>
+    </div>
+</div>
+<include file="public/footer" />
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<script src="/Public/js/jquery.pagination.min.js"></script>
+<script src="/Public/js/inside.js"></script>
+<script>
+    $(function(){
+        $("#pagination").pagination({
+            currentPage: 4,
+            totalPage: 16,
+            isShow: true,
+            count: 7,
+            homePageText: "首页",
+            endPageText: "尾页",
+            prevPageText: "上一页",
+            nextPageText: "下一页",
+            callback: function(current) {
+                $("#current3").text(current)
+            }
+        });
+
+        /*收起精筛*/
+        $('.pack-up').click(function(){
+            $('#pack-up').slideToggle();
+            $('.pack-up img').toggleClass('d');
+        });
+    });
+    $('.filter').click(function(){
+        var str = '';
+        var parent = $(this).parent().parent().attr('params');
+        $('.params_list').each(function(){
+            var active = '';
+            active = $(this).attr('active');
+            var params = '';
+            params = $(this).attr('params');
+            if(params!=parent && active){
+                str += '/'+params+'/'+active;
+            }
+        })
+        if($(this).attr('data_data') != 0){
+            str += '/'+parent+'/'+$(this).attr('data_data');
+        }
+
+        str = '/resume/part'+str;
+        window.location.href = str+'.html';
+    })
+</script>
+</body>
+</html>

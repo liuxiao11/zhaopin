@@ -1,0 +1,18 @@
+<table border="1">
+    <tr>
+        <th>发布时间</th>
+        <th>职业类别</th>
+        <th>工作地点</th>
+        <th>期望薪资</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($resume_list as $k=>$v){ ?>
+    <tr>
+        <td><?php echo date("Y-m-d",$v['create_time']); ?></td>
+        <td><?php echo $full_position[$v['full_position']]; ?></td>
+        <td>{$v.work_province}-{$v.work_city}</td>
+        <td><?php echo $salary[$v['salary']]; ?></td>
+        <td><a href="{:U('/home/person/resume_full_info',array('resume_id'=>$v['id']))}">查看</a>&nbsp;&nbsp;<a href="{:U('/home/person/del_resume_full',array('resume_id'=>$v['id']))}">删除</a></td>
+    </tr>
+    <?php } ?>
+</table>

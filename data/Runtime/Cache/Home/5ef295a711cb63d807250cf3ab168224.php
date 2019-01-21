@@ -1,0 +1,86 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/vip.css"/>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="head clearfloat">
+            <div class="logo lf">
+                <a href="/home"><img src="/Public/images/slogo.png" alt=""/></a>
+                <span>登录</span>
+            </div>
+            <div class="go-back rt">
+                <a href="/home">返回首页</a>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="main">
+    <div class="container">
+        <div class="vip-box clearfloat">
+            <div class="vip-lf lf">
+                <div class="form-box">
+                    <form class="tijiao" action="/home/sign/do_login">
+                        <div class="form-group">
+                            <label><img src="/Public/images/vi_03.png" alt=""/></label>
+                            <input type="text" id="uTel" name="phone" placeholder="请输入手机号"/>
+                        </div>
+                        <div class="form-group">
+                            <label><img src="/Public/images/vi_06.png" alt=""/></label>
+                            <input type="password" id="uPwd" name="password" placeholder="请输入密码"/>
+                        </div>
+                        <div class="button-holder">
+                            <div class="radio"  style="border: 0">
+                                <span>您的身份</span>
+                                <input type="radio" id="rencai" name="type" value="1" class="regular-radio regular-checkbox" checked />
+                                <label for="rencai"></label>人才
+                                <input type="radio" id="jianqi" name="type" value="2" class="regular-radio regular-checkbox" <?php if($get['type'] == 2){echo 'checked';} ?> />
+                                <label for="jianqi"></label>建企
+                                <input type="radio" id="lietou" name="type" value="3" class="regular-radio regular-checkbox" <?php if($get['type'] == 3){echo 'checked';} ?> />
+                                <label for="lietou"></label>猎头
+                            </div>
+                        </div>
+                        <div style="height:20px;"></div>
+                        <div class="button-holder">
+                            <div class="radio"  style="border: 0">
+                                <input type="checkbox" id="remember" name="radio-1-set" class="regular-radio regular-checkbox" />
+                                <label for="remember"></label>下次自动登录
+                            </div>
+                        </div>
+                        <button style="display:inline-block;width:330px;height:47px;line-height:47px;font-size: 16px;color:white;text-align:center;background-color: #0ea7f8;border:0px;border-radius: 3px;margin-top:30px;">立即登录</button>
+                    </form>
+                </div>
+            </div>
+            <div class="vip-rt lf">
+                <h4>提示：</h4>
+                <ul>
+                    <li>请正确选择注册类型，一旦发现假冒类型将永久封闭；</li>
+                    <li>若你是业务顾问、中介公司或培训机构请注册猎头用户；</li>
+                    <li>本网站可免费发布信息，除了特定的增值服务外，是不收取任何费用的；</li>
+                    <li>请勿发布虚假信息，一旦查处立即封号，带来的相关影响本网站不承担任何责任；</li>
+                    <li>禁止发布与本网站信息不相关的内容。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--验证内容-->
+<div class="false">
+    <div class="false_text">
+        <div class="close" id="close"><img src="/Public/images/delete.png" alt=""/></div>
+        <p></p>
+    </div>
+</div>
+<footer>
+    <p>@COPYRIGHT 京ICP备15047379号-1 版权所有：北京中储亨通信息咨询有限公司</p>
+    <p>电话： 地址：石景山区阜石路166号泽阳大厦1506</p>
+</footer>
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<script src="/Public/js/form.js"></script>
+</body>
+</html>

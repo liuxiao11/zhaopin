@@ -1,0 +1,40 @@
+<div style="border:1px solid red;">
+    基本信息 <br/>
+    <?php echo $resume_info['name'];?>&nbsp;&nbsp;[<?php echo $sex[$resume_info['sex']]; ?>] | <?php echo $resume_info['birthday']; ?>(出生日期的格式还没定，先写生日) | <?php echo $education[$resume_info['education']]; ?>
+    <br/>
+    求职意向：{$full_position[$resume_info['full_position']]} | 期望专业：{$subject[$resume_info['subject']]} | 期望薪资：{$salary[$resume_info['salary']]} | {$resume_info['work_province']}—{$resume_info['work_city']}<br/>
+    手机号码：{$resume_info['phone']}
+</div>
+<form action="{:U('/home/person/add_work_experience')}" method="post">
+    <input type="hidden" name="resume_id" value="{$resume_info['id']}" />
+    工作经验 <br/><br/>
+    公司名称:<input type="text" name="company_name" /><br/>
+    职位名称:<input type="text" name="positio_name" />
+    <select name="salary" id="">
+        <?php foreach($salary as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select>元/月<br/><br/>
+
+    在职时间:
+    <input type="text" name="start_time" /><input type="text" name="end_time" /><br/><br/>
+
+    工作内容：
+    <textarea name="work_content" id="" cols="30" rows="10"></textarea>
+    <input type="submit"/>
+</form>
+<form action="{:U('/home/person/add_educational_experience')}" method="post">
+    <input type="hidden" name="resume_id" value="{$resume_info['id']}" />
+    教育经历 <br/><br/>
+    学校名称:<input type="text" name="school_name" /><br/>
+    学历:
+    <select name="education" id="">
+        <?php foreach($education as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+    专业:<input type="text" name="subject" /><br/>
+    起始时间:
+    <input type="text" name="start_time" /><input type="text" name="end_time" /><br/><br/>
+    <input type="submit"/>
+</form>

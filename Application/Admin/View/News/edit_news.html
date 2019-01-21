@@ -1,0 +1,68 @@
+<include file="public/header"/>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__static/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__static/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__static/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__static/ueditor/ueditor.all.min.js"> </script>
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{$news_info.id}" />
+    <table class="form_table">
+        <tr class="tr1">
+            <td class="td1">标题</td>
+            <td class="td2"><input class="in_text" type="text" size="35" name="title" value="{$news_info.title}" ></td>
+            <td class="td3">* 输入标题</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">描述</td>
+            <td class="td2"><input class="in_text" type="text" size="35" name="description" value="{$news_info.description}" ></td>
+            <td class="td3">* 输入描述</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">关键字</td>
+            <td class="td2"><input class="in_text" type="text" size="35" name="keywords" value="{$news_info.keywords}" ></td>
+            <td class="td3">* 输入关键字</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">分类</td>
+            <td class="td2">
+                <select name="type" style="width:150px;">
+                    <?php foreach($news_type as $k=>$v){ ?>
+                    <option value="{$k}" <?php if($k==$news_info['type']){echo 'selected';} ?>>{$v}</option>
+                    <?php } ?>
+                </select>
+            </td>
+            <td class="td3">* 选择分类</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">作者</td>
+            <td class="td2"><input class="in_text" type="text" size="35" name="author" value="{$news_info.author}" ></td>
+            <td class="td3">* 作者</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">资讯内容</td>
+            <td><script id="container" name="content" type="text/plain" style="width:800px;height:400px;">{$news_info.content}</script></td>
+            <td class="td3">* 编辑内容</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">封面图</td>
+            <td class="td2">
+                <img class="news_img" src="{$news_info.img}" style="height:50px;position:relative;top:10px;"/>&nbsp;&nbsp;<input type="file" name="file" class="file" />
+            </td>
+            <td class="td3">* 限制jpg,jpeg,gif,png格式</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1"></td>
+            <td class="td2"></td>
+            <td class="td3"><input class="submit" type="submit" value="确认" /></td>
+        </tr>
+    </table>
+</form>
+<script>
+    //实例化编辑器
+    <!-- 实例化编辑器  加载编辑器的容器 -->
+    var ue = UE.getEditor('container');
+    setTimeout("UE.getEditor('container').container.style.zIndex = 0;", 300);
+    $('.file').change(function(){
+        $('.news_img').remove();
+    })
+</script>
+<include file="public/footer"/>

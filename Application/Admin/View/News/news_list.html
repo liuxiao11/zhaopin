@@ -1,0 +1,69 @@
+<include file="public/header"/>
+<!--<a href="/admin/news/add_news">添加</a>-->
+<a href="/admin/news/add_news" style="text-decoration:none;"><span style="float:left;display:inline-block;width:80px;height:30px;line-height: 30px;background-color: rgb(19,100,157);border-radius: 3px;text-align: center;color:white;">添加</span></a>
+<form action="" style="float:left;margin-left:40px;position:relative;top:5px;">
+    <select name="type" id="">
+        <option value="0">全部</option>
+        <?php foreach($news_type as $k=>$v){ ?>
+        <option value="{$k}" <?php if($get['type'] == $k){echo 'selected';} ?>>{$v}</option>
+        <?php } ?>
+    </select>
+    <button style="display:inline-block;padding:0 5px;background-color:rgb(73,141,197);color:white;;border:1px solid rgb(73,141,197);">搜索</button>
+</form>
+<div class="clear" style="height:20px;"></div>
+<table class="bjw_table">
+    <tr>
+        <th>id</th>
+        <th>上传者</th>
+        <th>分类</th>
+        <th style="width:250px;">标题</th>
+        <th>推荐</th>
+        <th>封面图</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($news_list as $k=>$v){ ?>
+    <tr>
+        <td>{$v.id}</td>
+        <td>{$v.member}</td>
+        <td>{$news_type[$v['type']]}</td>
+        <td>{$v.title}</td>
+        <td news_id="{$v.id}">
+            <span class="recommend"><input type="radio" value="1" <?php if($v['recommend'] == 1){echo 'checked';} ?> />否</span>
+            &nbsp;&nbsp;
+            <span class="recommend"><input type="radio" value="2" <?php if($v['recommend'] == 2){echo 'checked';} ?> />是</span>
+
+        </td>
+        <td><img src="{$v.img}" style="height:50px;"/></td>
+        <td>
+            <a class="a-edit" href="/admin/news/edit_news/id/{$v.id}" title="修改"></a>
+            <a class="a-del del_news" news_id="{$v.id}" href="javascript:void(0);" title="删除"></a>
+        </td>
+    </tr>
+    <?php } ?>
+</table>
+<script>
+    $('.del_news').click(function(){
+        var id=$(this).attr('news_id');
+        if(!confirm('确定删除吗？')){
+            return ;
+        }
+
+        window.location.href = '/admin/news/del_news/id/'+id;
+    })
+
+    //上架下架
+    $('.recommend').click(function(){
+        var news_id = $(this).parent().attr('news_id');
+        $(this).parent().children('.recommend').children('input').removeAttr('checked');
+        $(this).children('input').attr("checked",'true');
+        var value = $(this).children('input').val();
+
+        $.post("/admin/news/recommend",{news_id:news_id,value:value},function(data){
+            if(data.code == 1){
+                alert(data.message);
+                location.reload();
+            }
+        },'json');
+    });
+</script>
+<include file="public/footer"/>

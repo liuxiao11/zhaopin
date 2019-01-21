@@ -1,0 +1,87 @@
+全职简历-我的简历-详情 <br/><br/>
+<div style="border:1px solid red;">
+    基本信息 <br/><br/>
+    <form action="" method="post">
+        <input type="hidden" name="id" value="{$resume_info.id}" />
+        职位类别:
+        <select name="full_position" id="">
+            <?php foreach($full_position as $k=>$v){ ?>
+            <option <?php if($k==$resume_info['full_position']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php } ?>
+        </select><br/><br/>
+        期望专业:
+        <select name="subject" id="">
+            <?php foreach($subject as $k=>$v){ ?>
+            <option <?php if($k==$resume_info['subject']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php } ?>
+        </select><br/><br/>
+        工作地址:
+        <input type="text" name="work_province" value="{$resume_info.work_province}" />
+        <input type="text" name="work_city" value="{$resume_info.work_city}" /><br/><br/>
+        期望薪资:
+        <select name="salary" id="">
+            <?php foreach($salary as $k=>$v){ ?>
+            <option <?php if($k==$resume_info['salary']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php } ?>
+        </select><br/><br/>
+        姓名 <input type="text" name="name" value="{$resume_info.name}" />
+        性别 <input type="radio" name="sex" <?php if($resume_info['sex'] == 1){echo 'checked';} ?> value="1" />男&nbsp;&nbsp;<input type="radio" <?php if($resume_info['sex'] == 2){echo 'checked';} ?> name="sex" value="2" />女 <br/><br/>
+        出生日期 <input type="text" name="birthday" value="{$resume_info.birthday}" /><br/><br/>
+        工作年限:
+        <select name="work_years" id="">
+            <?php foreach($work_years as $k=>$v){ ?>
+            <option <?php if($k==$resume_info['work_years']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php } ?>
+        </select><br/><br/>
+        最高学历:
+        <select name="education" id="">
+            <?php foreach($education as $k=>$v){ ?>
+            <option <?php if($k==$resume_info['education']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php } ?>
+        </select><br/><br/>
+        <input type="submit"/>
+    </form>
+</div><br/>
+<div style="border:1px solid red;">
+    工作经验 <br/><br/>
+    <?php foreach($work_list as $k=>$v){ ?>
+    <form action="/home/person/save_work_experience" method="post">
+        <input type="hidden" name="id" value="{$v.id}" />
+        公司名称
+        <input type="text" name="company_name" value="{$v.company_name}" /><br/><br/>
+        职位名称
+        <input type="text" name="positio_name" value="{$v.positio_name}" />
+        <select name="salary" id="">
+            <?php foreach($salary as $kk=>$vv){ ?>
+            <option <?php if($kk==$v['salary']){echo 'selected';} ?> value="<?php echo $kk; ?>"><?php echo $vv; ?></option>
+            <?php } ?>
+        </select>元/月<br/><br/>
+        在职时间:
+        <input type="text" name="start_time" value="{$v.start_time}" /><input type="text" name="end_time" value="{$v.end_time}" /><br/><br/>
+        工作内容：
+        <textarea name="work_content" id="" cols="30" rows="10">{$v.work_content}</textarea><br/><br/>
+        <input type="submit"/>
+    </form>
+    <?php } ?>
+</div><br/>
+<div style="border:1px solid red;">
+    教育经历 <br/><br/>
+    <?php foreach($education_list as $k=>$v){ ?>
+    <form action="/home/person/save_educational_experience" method="post">
+        <input type="hidden" name="id" value="{$v.id}" />
+        起始时间:
+        <input type="text" name="start_time" value="{$v.start_time}" /><input type="text" name="end_time" value="{$v.end_time}" /><br/><br/>
+        学校名称
+        <input type="text" name="school_name" value="{$v.school_name}" /><br/><br/>
+        学历
+        <select name="education" id="">
+            <?php foreach($education as $kk=>$vv){ ?>
+            <option <?php if($kk==$v['education']){echo 'selected';} ?> value="<?php echo $kk; ?>"><?php echo $vv; ?></option>
+            <?php } ?>
+        </select><br/><br/>
+        专业
+        <input type="text" name="subject" value="{$v.subject}" /><br/><br/>
+        <input type="submit"/>
+    </form>
+    <?php } ?>
+</div>

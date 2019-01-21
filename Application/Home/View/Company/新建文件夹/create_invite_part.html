@@ -1,0 +1,25 @@
+<form action="" method="post">
+    兼职招聘 <br/><br/>
+    您的称呼 <input type="text" name="call" /><br/><br/>
+    所需人才:
+    <select name="position_one" id="">
+        <?php foreach($position_one as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select>
+    <select name="position_two" id="">
+        <?php foreach($position_two[1] as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+    价格 <input type="text" name="salary" /><br/><br/>
+    公司地址
+    <input type="text" name="company_province" />
+    <input type="text" name="company_city" /><br/><br/>
+    特殊需求:
+    <textarea name="content" id="" cols="30" rows="10"></textarea><br/><br/>
+    手机号 <input type="text" name="phone" /><br/><br/>
+    公司名称 <input type="text" name="company_name" /><br/><br/>
+    <input type="submit"/>
+</form>
+<form action=""></form>

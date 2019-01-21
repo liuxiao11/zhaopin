@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/Public/css/jquery.pagination.css"/>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/area.css"/>
+    <link rel="stylesheet" href="/Public/css/my.css"/>
+</head>
+<body>
+<include file="public/header" />
+<div class="center-contain bg">
+    <div class="flow-type">
+        <div style="width: 1200px;background: #ffffff;margin: 0 auto">
+            <div class="flow-box">
+                <div class="cell active">
+                    <b>1</b>
+                    <p>选择类型</p>
+                </div>
+                <img src="/Public/images/point_03.png" alt=""/>
+                <div class="cell">
+                    <b>2</b>
+                    <p>选择分类</p>
+                </div>
+                <img src="/Public/images/point_03.png" alt=""/>
+                <div class="cell">
+                    <b>3</b>
+                    <p>填写信息</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container clearfloat">
+        <div class="content-rt flow">
+            <h4>选择类型</h4>
+            <div class="type-box">
+                <ul class="clearfloat">
+                    <li class="clearfloat">
+                        <div class="lf">
+                            <img src="/Public/images/png_08.png" alt=""/>
+                            <p>人才</p>
+                        </div>
+                        <div class="rt">
+                            <a href="javascript:void(0);" class="publish" type="1" data-link="{:U('/home/publish/resume_part_type')}">兼职简历</a>
+                            <br/>
+                            <a href="javascript:void(0);" class="publish" type="1" data-link="{:U('/home/person/resume_full')}">全职简历</a>
+                        </div>
+                    </li>
+                    <li class="clearfloat">
+                        <div class="lf">
+                            <img src="/Public/images/png_03.png" alt=""/>
+                            <p>建企</p>
+                        </div>
+                        <div class="rt">
+                            <a href="javascript:void(0);" type="2" class="publish" data-link="{:U('/home/publish/invite_part_type')}">兼职招聘</a>
+                            <br/>
+                            <a href="javascript:void(0);" type="2" class="publish" data-link="{:U('/home/company/resume_full')}">全职招聘</a>
+                        </div>
+                    </li>
+                    <li class="clearfloat">
+                        <div class="lf">
+                            <img src="/Public/images/png_05.png" alt=""/>
+                            <p>猎头</p>
+                        </div>
+                        <div class="rt">
+                            <a href="javascript:void(0);" type="3" class="publish" data-link="{:U('/home/publish/resume_head_type')}">兼职简历</a>
+                            <br/>
+                            <a href="javascript:void(0);" type="3" class="publish" data-link="{:U('/home/headhunt/resume_full')}">全职简历</a>
+                            <br/>
+                            <a href="javascript:void(0);" type="3" class="publish" data-link="{:U('/home/publish/invite_head_type')}">兼职招聘</a>
+                            <br/>
+                            <a href="javascript:void(0);" type="3" class="publish" data-link="{:U('/home/headhunt/invite_full')}">全职招聘</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--验证内容-->
+<div class="false">
+    <div class="false_text">
+        <div class="close" id="close"><img src="/Public/images/delete.png" alt=""/></div>
+        <p></p>
+    </div>
+</div>
+<include file="public/footer" />
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<script src="/Public/js/form.js"></script>
+<script type="text/javascript" src="/Public/js/address.js"></script>
+<script src="/Public/js/my.js"></script>
+<script>
+    $(function(){
+        $("#sjld").sjld("#shenfen","#chengshi","#quyu");
+
+    });
+</script>
+<script>
+    $('.publish').click(function(){
+        var link = $(this).attr('data-link');
+        var type = $(this).attr('type');
+        var user_type = '{$user.type}';
+        if(type != user_type){
+            alert('您的身份不可以进行这个操作');return ;
+        }
+
+        window.location.href = link;
+    })
+</script>
+</body>
+</html>

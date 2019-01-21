@@ -1,0 +1,114 @@
+<include file="public/header"/>
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{$user_info.id}" />
+    <table class="form_table">
+        <tr class="tr1">
+            <td class="td1">登录手机号</td>
+            <td class="td2"><input class="in_text" type="text" size="35" name="phone" value="{$user_info.phone}" ></td>
+            <td class="td3">* 必填</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">昵称</td>
+            <td class="td2"><input class="in_text" type="text" size="35" name="nickname" value="{$user_info.nickname}" ></td>
+            <td class="td3">* 必填</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">登录密码</td>
+            <td class="td2"><input class="in_text" type="text" size="35" name="password" ></td>
+            <td class="td3">* 必填</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">公司名称</td>
+            <td class="td2"><input class="in_text" type="text" size="35" name="company_name" value="{$company_info.company_name}" ></td>
+            <td class="td3"></td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">公司规模</td>
+            <td class="td2">
+                <select name="company_scale" style="width:150px;">
+                    <option value="0">未选择</option>
+                    <?php foreach($company_scale as $k=>$v){ ?>
+                    <option value="{$k}" <?php if($company_info['company_scale'] == $k){echo 'selected';} ?>>{$v}</option>
+                    <?php } ?>
+                </select>
+            </td>
+            <td class="td3"></td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">联系人</td>
+            <td class="td2"><input class="in_text" type="text" size="35" name="contact" value="{$company_info.contact}" ></td>
+            <td class="td3"></td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">联系电话</td>
+            <td class="td2"><input class="in_text" type="text" size="35" name="tel" value="{$company_info.tel}" ></td>
+            <td class="td3"></td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">所在地区</td>
+            <td>
+                <div id="city">
+                    <select class="prov" name="province" style="width:auto;">
+                        <option value="0">请选择</option>
+                        <?php foreach($province_list as $k=>$v){ ?>
+                        <option value="{$v.id}" <?php if($v['id'] == $company_info['province']){echo 'selected';} ?>>{$v.name}</option>
+                        <?php } ?>
+                    </select>&nbsp;
+                    <select class="city" name="city" style="width:auto;">
+                        <option value="0">请选择</option>
+                        <?php foreach($city_list as $k=>$v){ ?>
+                        <option value="{$v.id}" <?php if($v['id'] == $company_info['city']){echo 'selected';} ?>>{$v.name}</option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </td>
+            <td class="td3"></td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">详细地址</td>
+            <td class="td2"><input class="in_text" type="text" size="35" name="address" value="{$company_info.address}" ></td>
+            <td class="td3"></td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">公司简介</td>
+            <td class="td2">
+                <textarea name="intro" id="" cols="30" rows="10" style="padding:5px;vertical-align: middle;">{$company_info.intro}</textarea>
+            </td>
+            <td class="td3"></td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">logo</td>
+            <td class="td2">
+                <img class="logo_img" src="{$company_info.img}" style="height:50px;position:relative;top:10px;"/>&nbsp;&nbsp;<input type="file" name="file" class="file" />
+            </td>
+            <td class="td3">* 限制jpg,jpeg,gif,png格式</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1"></td>
+            <td class="td2"></td>
+            <td class="td3"><input class="submit" type="submit" value="确认" /></td>
+        </tr>
+    </table>
+</form>
+<script>
+    $('.prov').change(function(){
+        var province = $(this).val();
+        $('.city').empty();
+        if(province == 0){
+            return ;
+        }
+
+        $.post("/admin/ajax/ajax_city",{province:province},function(data){
+            if(data.code == 1){
+                alert(data.message);
+                return ;
+            }
+
+            $('.city').append("<option value=\"0\">请选择</option>");
+            for(var i=0;i<data.data.length;i++){
+                $('.city').append("<option value=\""+data.data[i].id+"\">"+data.data[i].name+"</option>");
+            }
+        },'json')
+    })
+</script>
+<include file="public/footer"/>

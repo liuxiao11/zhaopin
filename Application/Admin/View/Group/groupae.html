@@ -1,0 +1,25 @@
+<div class="content ae">
+		<form method="post" id="form">
+		<input type="hidden" name="id" value="{$val.id}" >
+		<table id="table">
+			<tr>
+				<th>组名</th>
+				<td><input type="text" class="text" name="title" size="30" value="{$val.title}" ></td>
+				<td class="form_table_td">* 组名不能为空，如超级组</td>
+			</tr>
+			<tr>
+				<th>排序</th>
+				<td><input type="text" class="text" name="sort" size="10" value="{$val.sort}" ></td>
+				<td class="form_table_td">* 升序排列<font color="red">[值越小越靠前]</font></td>
+			</tr>
+			<tr>
+				<th>状态</th>
+				<td>
+					<input type="radio" class="radio" id="on" value="on" name="status" {$val.status|checked="on"}>&nbsp;<label for="on">开</label>&nbsp;
+					<input type="radio" class="radio" id="off" value="off" name="status" {$val.status|checked="off"}>&nbsp;<label for="off">关</label>&nbsp;
+				</td>
+				<td class="form_table_td"></td>
+			</tr>
+		</table>
+		</form>
+</div>

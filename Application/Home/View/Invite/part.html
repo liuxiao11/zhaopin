@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/jquery.pagination.css"/>
+    <link rel="stylesheet" href="/Public/css/swiper.min.css"/>
+    <link rel="stylesheet" href="/Public/css/my.css"/>
+    <link rel="stylesheet" href="/Public/css/inside.css"/>
+</head>
+<body>
+<include file="public/header" />
+<div class="main-box">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">资讯</a></li>
+        </ul>
+        <div class="nav recruit-nav">
+            <a href="/invite/part.html" class="active">兼职招聘</a>
+            <a href="/invite/full.html">全职招聘</a>
+            <a href="/news/lists/type/3.html">职场资讯</a>
+        </div>
+        <div class="section">
+            <div class="selection">
+                <div class="select-type clearfloat params_list" params="cat_one" active="{$get['cat_one']}">
+                    <div class="title lf">分类1</div>
+                    <div class="select-cont lf">
+                        <a href="javascript:void(0);" class="filter <?php if(!$get['cat_one']){echo 'active';} ?>" data_data="0">不限</a>
+                        <?php foreach($cat_one as $k=>$v){ ?>
+                        <a href="javascript:void(0);" class="filter <?php if($get['cat_one'] == $k){echo 'active';} ?>" data_data="{$k}">{$v}</a>
+                        <?php } ?>
+                    </div>
+                </div>
+
+                <?php if($get['cat_one']){ ?>
+                <div class="select-type clearfloat params_list" params="cat_two" active="{$get['cat_two']}">
+                    <div class="title lf">分类2</div>
+                    <div class="select-cont lf">
+                        <a href="javascript:void(0);" class="filter <?php if(!$get['cat_two']){echo 'active';} ?>" data_data="0">不限</a>
+                        <?php foreach($cat_two[$get['cat_one']] as $k=>$v){ ?>
+                        <a href="javascript:void(0);" class="filter <?php if($get['cat_two'] == $k){echo 'active';} ?>" data_data="{$k}">{$v}</a>
+                        <?php } ?>
+                    </div>
+                </div>
+                <?php } ?>
+
+                <div class="select-type clearfloat params_list" params="company_province" active="{$get['company_province']}">
+                    <div class="title lf">省份</div>
+                    <div class="select-cont lf">
+                        <a href="javascript:void(0);" class="filter <?php if(!$get['company_province']){echo 'active';} ?>" data_data="0">不限</a>
+                        <?php foreach($province_list as $k=>$v){ ?>
+                        <a href="javascript:void(0);" class="filter <?php if($get['company_province'] == $v['id']){echo 'active';} ?>" data_data="{$v.id}">{$v.name}</a>
+                        <?php } ?>
+                    </div>
+                </div>
+
+                <?php if($get['company_province'] && $city_list){ ?>
+                <div class="select-type clearfloat params_list" params="company_city" active="{$get['company_city']}">
+                    <div class="title lf">城市</div>
+                    <div class="select-cont lf">
+                        <a href="javascript:void(0);" class="filter <?php if(!$get['company_city']){echo 'active';} ?>" data_data="0">不限</a>
+                        <?php foreach($city_list as $k=>$v){ ?>
+                        <a href="javascript:void(0);" class="filter <?php if($get['company_city'] == $v['id']){echo 'active';} ?>" data_data="{$v.id}">{$v.name}</a>
+                        <?php } ?>
+                    </div>
+                </div>
+                <?php } ?>
+
+                <div class="select-type clearfloat" id="pack-up">
+                    <div class="title lf">更多</div>
+                    <div class="select-cont lf select">
+                        <select>
+                            <option value="0">发布者类型</option>
+                        </select>
+                        <select>
+                            <option value="0">薪资</option>
+                        </select>
+                        <select>
+                            <option value="0">工作经验</option>
+                        </select>
+                        <select>
+                            <option value="0">合同年限</option>
+                        </select>
+                        <select>
+                            <option value="0">学历</option>
+                        </select>
+                        <select>
+                            <option value="0">用途</option>
+                        </select>
+                        <select>
+                            <option value="0">职称等级</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="select-type" style="text-align: right">
+                    <a href="javascript:;" class="pack-up"><img src="/Public/images/slide_03.png" alt=""/>精选筛选条件</a>
+                </div>
+            </div>
+            <div class="companies clearfloat">
+                <div class="recruit_title">
+
+                </div>
+                <div class="c_left lf">
+                    <div class="detail-cont recruit_list">
+                        <ul class="jobs-cont clearfloat">
+                            <?php foreach($invite_list as $k=>$v){ ?>
+                            <li>
+                                <a href="/invite/look_part/id/{$v.id}" class="clearfloat">
+                                    <div class="lf">
+                                        <div class="tit">{$v.company_name}</div>
+                                        <div class="job">
+                                            {$cat_one[$v['cat_one']]}-{$cat_two[$v['cat_one']][$v['cat_two']]}
+                                        </div>
+                                    </div>
+                                    <div class="lf">
+                                        <div class="tit"></div>
+                                        <div class="addr">{$v.company_province}-{$v.company_city}</div>
+                                    </div>
+                                    <div class="price">{$salary[$v['salary']]} <span><?php echo date("Y-m-d",$v['create_time']); ?></span></div>
+                                </a>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </div>
+                <div class="c_right rt">
+                    <img src="/Public/images/slide_03.jpg" alt=""/>
+                    <h3><img src="/Public/images/slide_06.jpg" alt=""/>知名企业</h3>
+                    <div class="slide_cell">
+                        <div class="c_logo">
+                            <img src="/Public/images/c_logo_03.png" alt=""/>
+                        </div>
+                        <div class="c_introduce">
+                            <h4>安徽中龙投资集团有限公司</h4>
+                            <!--<div class="scores">
+                              <div class="praise">口碑：<span>6</span></div>
+                              <div class="position">在招职位：<span>33</span></div>
+                              <div class="ask">咨询：<span>12</span></div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="slide_cell">
+                        <div class="c_logo">
+                            <img src="/Public/images/c_logo_03.png" alt=""/>
+                        </div>
+                        <div class="c_introduce">
+                            <h4>安徽中龙投资集团有限公司</h4>
+                            <!--<div class="scores">
+                              <div class="praise">口碑：<span>6</span></div>
+                              <div class="position">在招职位：<span>33</span></div>
+                              <div class="ask">咨询：<span>12</span></div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="slide_cell">
+                        <div class="c_logo">
+                            <img src="/Public/images/c_logo_03.png" alt=""/>
+                        </div>
+                        <div class="c_introduce">
+                            <h4>安徽中龙投资集团有限公司</h4>
+                            <!--<div class="scores">
+                              <div class="praise">口碑：<span>6</span></div>
+                              <div class="position">在招职位：<span>33</span></div>
+                              <div class="ask">咨询：<span>12</span></div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--分页器-->
+            <include file="public/page" />
+        </div>
+    </div>
+</div>
+<include file="public/footer" />
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<script src="/Public/js/jquery.pagination.min.js"></script>
+<script src="/Public/js/inside.js"></script>
+<script>
+    $(function(){
+        /*收起精筛*/
+        $('.pack-up').click(function(){
+            $('#pack-up').slideToggle();
+            $('.pack-up img').toggleClass('d');
+        });
+
+        $('.filter').click(function(){
+            var str = '';
+            var parent = $(this).parent().parent().attr('params');
+            $('.params_list').each(function(){
+                var active = '';
+                active = $(this).attr('active');
+                var params = '';
+                params = $(this).attr('params');
+                if(params!=parent && active){
+                    str += '/'+params+'/'+active;
+                }
+            })
+            if($(this).attr('data_data') != 0){
+                str += '/'+parent+'/'+$(this).attr('data_data');
+            }
+
+            str = '/invite/part'+str;
+            window.location.href = str+'.html';
+        })
+    });
+</script>
+</body>
+</html>

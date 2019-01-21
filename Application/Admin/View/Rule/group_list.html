@@ -1,0 +1,66 @@
+<include file="public/header"/>
+<a href="javascript:void(0);" class="add_group" style="text-decoration:none;"><span style="display:inline-block;width:80px;height:30px;line-height: 30px;background-color: rgb(19,100,157);border-radius: 3px;text-align: center;color:white;">添加</span></a>
+<div style="height:20px;"></div>
+<table class="bjw_table">
+    <tr>
+        <th>id</th>
+        <th>名称</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($group_list as $k=>$v){ ?>
+    <tr gid="{$v.id}">
+        <td>{$v.id}</td>
+        <td class="group_title">{$v.title}</td>
+        <td>
+            <a class="a-group-rule" href="/admin/rule/power/gid/{$v.id}" title="权限"></a>
+            <a class="a-del" href="javascript:void(0);" title="删除"></a>
+        </td>
+    </tr>
+    <?php } ?>
+</table>
+<script>
+    //删除分组
+    $('.a-del').click(function(){
+        var gid = $(this).parent().parent().attr('gid');
+        if(!confirm('确认删除节点和所有子节点吗')){
+            return ;
+        }
+
+        window.location.href = '/admin/rule/del_group/gid/'+gid;
+    })
+
+    //添加分组
+    $('.add_group').click(function(){
+        var value = prompt("请输入分组名称");
+        if(!value){
+            return ;
+        }
+
+        $.post("/admin/rule/add_group",{value:value},function(data){
+            if(data.code == 1){
+                alert(data.message);
+            }
+            location.reload();
+        },'json')
+    })
+
+    //修改分组名称
+    $('.group_title').click(function(){
+        var gid=$(this).parent().attr('gid');
+        var value = prompt("请输入分组名称");
+        if(!value){
+            return ;
+        }
+
+        var _this = $(this);
+        $.post("/admin/rule/edit_group",{gid:gid,value:value},function(data){
+            if(data.code == 0){
+                _this.html(value);
+            }else if(data.code == 1){
+                alert(data.message);
+            }
+
+        },'json')
+    })
+</script>
+<include file="public/footer"/>

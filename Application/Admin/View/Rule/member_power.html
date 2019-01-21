@@ -1,0 +1,9 @@
+<include file="public/header"/>
+<form action="" method="post">
+    <input type="hidden" name="mid" value="{$member_info['id']}" />
+    <?php foreach($group_list as $k=>$v){ ?>
+    <div style="height:30px;"><input type="radio" name="gid" value="{$v.id}" <?php if($member_info['gid'] == $v['id']){echo 'checked';} ?> />{$v.title}</div>
+    <?php } ?>
+    <input type="submit"/>
+</form>
+<include file="public/footer"/>

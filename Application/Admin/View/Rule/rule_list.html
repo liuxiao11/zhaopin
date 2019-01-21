@@ -1,0 +1,78 @@
+<include file="public/header"/>
+<table class="bjw_table">
+    <tr>
+        <th>id</th>
+        <th>层级</th>
+        <th>节点名称</th>
+        <th>跳转地址</th>
+        <th>类型</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($key_rule_list as $k=>$v){ ?>
+    <tr>
+        <td>{$v.id}</td>
+        <td>{$v.level}</td>
+        <td>{$v.title}</td>
+        <td>{$v.name}</td>
+        <td>{$v.position}</td>
+        <td>
+            <a class="a-children" href="/admin/rule/add_rule/rule_id/{$v.id}" title="添加子节点"></a>
+            <a class="a-edit" href="/admin/rule/edit_rule/rid/{$v.id}" title="修改"></a>
+            <a class="a-del" link="/admin/rule/del_rule/rid/{$v.id}" href="javascript:void(0);" title="删除"></a>
+        </td>
+    </tr>
+    <?php foreach($v['children_two'] as $kk=>$vv){ ?>
+    <tr>
+        <td>{$vv.id}</td>
+        <td>{$vv.level}</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;{$vv.title}</td>
+        <td>{$vv.name}</td>
+        <td>{$vv.position}</td>
+        <td>
+            <a class="a-children" href="/admin/rule/add_rule/rule_id/{$vv.id}" title="添加子节点"></a>
+            <a class="a-edit" href="/admin/rule/edit_rule/rid/{$vv.id}" title="修改"></a>
+            <a class="a-del" link="/admin/rule/del_rule/rid/{$vv.id}" href="javascript:void(0);" title="删除"></a>
+        </td>
+    </tr>
+    <?php foreach($vv['children_three'] as $kkk=>$vvv){ ?>
+    <tr>
+        <td>{$vvv.id}</td>
+        <td>{$vvv.level}</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$vvv.title}</td>
+        <td>{$vvv.name}</td>
+        <td>{$vvv.position}</td>
+        <td>
+            <a class="a-children" href="/admin/rule/add_rule/rule_id/{$vvv.id}" title="添加子节点"></a>
+            <a class="a-edit" href="/admin/rule/edit_rule/rid/{$vvv.id}" title="修改"></a>
+            <a class="a-del" link="/admin/rule/del_rule/rid/{$vvv.id}" href="javascript:void(0);" title="删除"></a>
+        </td>
+    </tr>
+    <?php foreach($vvv['children_four'] as $k4=>$v4){ ?>
+    <tr>
+        <td>{$v4.id}</td>
+        <td>{$v4.level}</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$v4.title}</td>
+        <td>{$v4.name}</td>
+        <td>{$v4.position}</td>
+        <td>
+
+            <a class="a-edit" href="/admin/rule/edit_rule/rid/{$v4.id}" style="margin-left:27px;" title="修改"></a>
+            <a class="a-del" link="/admin/rule/del_rule/rid/{$v4.id}" href="javascript:void(0);" title="删除"></a>
+        </td>
+    </tr>
+    <?php } ?>
+    <?php } ?>
+    <?php } ?>
+    <?php } ?>
+</table>
+<script>
+    $('.a-del').click(function(){
+        var link = $(this).attr('link');
+        if(!confirm('确认删除节点和所有子节点吗')){
+            return ;
+        }
+
+        window.location.href = link;
+    })
+</script>
+<include file="public/footer"/>

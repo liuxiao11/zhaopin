@@ -1,0 +1,40 @@
+<div class="center-lf">
+    <div class="head-portrait">
+        <img src="/Public/images/photo_03.jpg" alt="" class="pic"/>
+        <h3>{$user_info.nickname}</h3>
+        <div class="level">我的等级：<span>普通会员</span></div>
+        <div class="tel">我的手机：<span>{$user_info.phone}</span></div>
+    </div>
+    <ul class="parent-list">
+        <li>
+            <a href="/company" class="<?php if(ACTION_NAME == 'index'){echo 'active';} ?>">
+                <i class="i1"></i>首页 <em></em>
+            </a>
+        </li>
+        <li>
+            <a href=""><i class="i2"></i>兼职招聘<em></em></a>
+            <ul class="list">
+                <li><a href="/home/company/invite_part_list" class="<?php if(ACTION_NAME == 'invite_part_list' || ACTION_NAME == 'edit_invite_part'){echo 'active';} ?>">我的招聘<em></em></a></li>
+                <li><a href="">简历投递记录<em></em></a></li>
+                <li><a href="">简历下载记录<em></em></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href=""><i class="i3"></i>全职招聘<em></em></a>
+            <ul class="list">
+                <li><a href="/home/company/invite_full_list" class="<?php if(ACTION_NAME == 'invite_full_list' || ACTION_NAME == 'edit_invite_full'){echo 'active';} ?>">我的招聘<em></em></a></li>
+                <li><a href="">简历投递记录<em></em></a></li>
+                <li><a href="">简历下载记录<em></em></a></li>
+            </ul>
+        </li>
+        <li><a href="/company/invite_full.html" class="<?php if(ACTION_NAME == 'invite_full' || ACTION_NAME == 'invite_part'){echo 'active';} ?>"><i class="i4"></i>发布信息<em></em></a></li>
+        <li>
+            <a href=""><i class="i5"></i>账号管理<em></em></a>
+            <ul class="list">
+                <li><a href="/company/info" class="<?php if(ACTION_NAME == 'info'){echo 'active';} ?>">公司资料<em></em></a></li>
+                <li><a href="/company/update_pwd" class="<?php if(ACTION_NAME == 'update_pwd'){echo 'active';} ?>">修改密码<em></em></a></li>
+            </ul>
+        </li>
+        <li><a href="/sign/logout"><i class="i6"></i>退出<em></em></a></li>
+    </ul>
+</div>

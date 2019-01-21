@@ -1,0 +1,44 @@
+<form action="" method="post">
+    兼职简历 <br/><br/>
+    职位类别:
+    <select name="position_one" id="">
+        <?php foreach($position_one as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select>
+    <select name="position_two" id="">
+        <?php foreach($position_two[1] as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select>
+    真实姓名 <input type="text" name="name" />
+    性别
+    <select name="sex" id="">
+        <?php foreach($sex as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+    出生日期 <input type="text" name="birthday" /><br/><br/>
+    最高学历：
+    <select name="education" id="">
+        <?php foreach($education as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+    毕业时间：<input type="text" name="graduation_time" />年<br/>
+    证书所在地:
+    <input type="text" name="certificate_province" />
+    <input type="text" name="certificate_city" /><br/><br/>
+    期望薪资 <input type="text" name="salary" /><br/><br/>
+    职称
+    <select name="job_title" id="">
+        <?php foreach($job_title as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+    职位描述:
+    <textarea name="position_desc" id="" cols="30" rows="10"></textarea>
+    手机号 <input type="text" name="phone" />
+    <input type="submit"/>
+</form>
+<form action=""></form>

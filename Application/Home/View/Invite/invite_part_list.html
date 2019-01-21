@@ -1,0 +1,68 @@
+<style>
+    .active{background-color:red;}
+</style>
+<div style="border:1px solid red;">
+    <p class="params_list" params="position_one" active="{$get['position_one']}">
+        分类1：
+        <span class="filter <?php if(!$get['position_one']){echo 'active';} ?>" data_data="0">不限</span>
+        <?php foreach($position_one as $k=>$v){ ?>
+        <?php if($k > 0){ ?>
+        <span class="filter <?php if($get['position_one'] == $k){echo 'active';} ?>" data_data="{$k}">{$v}</span>
+        <?php } ?>
+        <?php } ?>
+    </p>
+
+    <?php if($get['position_one']){ ?>
+    <p class="params_list" params="position_two" active="{$get['position_two']}">
+        分类2：
+        <span class="filter <?php if(!$get['position_two']){echo 'active';} ?>" data_data="0">不限</span>
+        <?php foreach($position_two[$get['position_one']] as $k=>$v){ ?>
+        <?php if($k > 0){ ?>
+        <span class="filter <?php if($get['position_two'] == $k){echo 'active';} ?>" data_data="{$k}">{$v}</span>
+        <?php } ?>
+        <?php } ?>
+    </p>
+    <?php } ?>
+</div>
+<table border="1">
+    <tr>
+        <th>所需人才</th>
+        <th>称呼</th>
+        <th>价格</th>
+        <th>公司地址</th>
+        <th>发布时间</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($invite_list as $k=>$v){ ?>
+    <tr>
+        <td>{$position_one[$v['position_one']]}-{$position_two[$v['position_one']][$v['position_two']]}</td>
+        <td>{$v.call}</td>
+        <td>{$v.salary}</td>
+        <td>{$v.company_province}-{$v.company_city}</td>
+        <td><?php echo date("Y-m-d",$v['create_time']); ?></td>
+        <td><a href="{:U('/home/invite/look_part',array('invite_id'=>$v['id']))}">浏览</a></td>
+    </tr>
+    <?php } ?>
+</table>
+<script type="text/javascript" src="/Public/js/jquery-1.8.3.min.js" ></script>
+<script>
+    $('.filter').click(function(){
+        var str = '';
+        var parent = $(this).parent().attr('params');
+        $('.params_list').each(function(){
+            var active = '';
+            active = $(this).attr('active');
+            var params = '';
+            params = $(this).attr('params');
+            if(params!=parent && active){
+                str += '/'+params+'/'+active;
+            }
+        })
+        if($(this).attr('data_data') != 0){
+            str += '/'+parent+'/'+$(this).attr('data_data');
+        }
+
+        str = '/home/invite/invite_part_list'+str;
+        window.location.href = str;
+    })
+</script>

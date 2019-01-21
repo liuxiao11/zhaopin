@@ -1,0 +1,82 @@
+		<div class="content" style="width: 800px;">
+			<form id="form" method="post">
+			<input type="hidden" name="id" value="{$val.id}"/>
+			<table id="table" border="0" cellspacing="1"cellpadding="6">
+				<tr>
+					<td class="pdl" align="left" style="background: #498dc5;color: #fff;">
+						<input type="checkbox" id="0" value="0" <if condition="$val['rules']">checked="checked"</if>/>&nbsp;<label for="0">全选</label>
+					</td>
+				</tr>
+				{~$four=4;$eight=8;}
+				<volist name="list" id="v" key="k">
+					<tr>
+						<td class="pdl" align="left" style="background: #f5f9fc;">
+							<input  type="checkbox" id="{$v.id}" pid="0" name="rules[]" value="{$v.id}" {$v.id|rulecheck=$val['rules']} />&nbsp;<label for="{$v.id}">{$v.title }</label>
+						</td>
+					</tr>
+						<volist name="v['son']" id="sonval">
+							<tr>
+								<td class="pdl" align="left">
+									{$four|str_repeat="&nbsp;",###}<input pid="{$v['id']}" type="checkbox" id="{$sonval.id}"  name="rules[]" value="{$sonval.id}" {$sonval.id|rulecheck=$val['rules']}/>&nbsp;<label for="{$sonval.id}">{$sonval.title }</label>
+								</td>
+							</tr>
+								<volist name="sonval['son']" id="grandsonval">
+								<tr>
+									<td class="pdl" align="left">
+										{$eight|str_repeat="&nbsp;",###}<input  type="checkbox" pid="{$sonval['id']}" id="{$grandsonval.id}"  name="rules[]" value="{$grandsonval.id}" {$grandsonval.id|rulecheck=$val['rules']}/>&nbsp;<label for="{$grandsonval.id}">{$grandsonval.title }</label>
+									</td>
+								</tr>
+								<notempty name="grandsonval['son']">
+								<tr>
+									<td class="pdl" align="left">
+										{$four|str_repeat="&nbsp;",###}<foreach name="grandsonval['son']" item="oval">
+											{$four|str_repeat="&nbsp;",###}<input  type="checkbox" pid="{$grandsonval['id']}" id="{$oval.id}"  name="rules[]" value="{$oval.id}" {$oval.id|rulecheck=$val['rules']}/>&nbsp;<label for="{$oval.id}">{$oval.title }</label>
+										</foreach>
+									</td>
+								</tr>
+								</notempty>
+								<tr>
+									<td class="pdl" align="left">&nbsp;</td>
+								</tr>
+								</volist>
+						</volist>
+						<tr>
+							<td class="pdl" align="left">&nbsp;</td>
+						</tr>
+				</volist>
+			</table>
+			</form>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				//以下选择子类
+				$.recursive = function(obj){
+					var id=obj.attr('id')
+					var p=$('input[pid='+id+']');
+					if(obj.attr('checked')!=true){
+						p.removeAttr('checked');
+					}else{
+						p.attr('checked','checked');
+					}
+					
+					p.each(function(){
+						$.recursive($(this));
+					})
+				}
+				//以下选择子类
+				$.recursiveParent = function(obj){
+					var pid=obj.attr('pid')
+					var p=$('input[id='+pid+']');
+					if(obj.attr('checked')==true){
+						p.attr('checked','checked');
+						p.each(function(){
+							$.recursiveParent($(this));
+						})
+					}
+				}
+				$('input[type=checkbox]').click(function(){
+					$.recursive($(this));
+					$.recursiveParent($(this))
+				});
+			})
+		</script>

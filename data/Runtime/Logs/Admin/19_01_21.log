@@ -1,0 +1,214 @@
+[ 2019-01-21T09:19:50+08:00 ] 127.0.0.1 /admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0039s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0039s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0010s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.017578s ]
+INFO: [ app_init ] --END-- [ RunTime:1.018555s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001953s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002930s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined variable: page D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 131 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013672s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013672s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000976s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000976s ]
+
+[ 2019-01-21T09:20:06+08:00 ] 127.0.0.1 /admin/sign/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000977s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0029s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.017578s ]
+INFO: [ app_init ] --END-- [ RunTime:1.018555s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000976s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001953s ]
+
+[ 2019-01-21T09:20:07+08:00 ] 127.0.0.1 /admin/sign
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0029s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.017578s ]
+INFO: [ app_init ] --END-- [ RunTime:1.019531s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001954s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006836s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006836s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2019-01-21T09:20:10+08:00 ] 127.0.0.1 /admin/sign
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0029s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0010s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.039062s ]
+INFO: [ app_init ] --END-- [ RunTime:1.040039s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000976s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001953s ]
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.0049s ]
+SQL: SELECT `id`,`gid`,`account`,`tel`,`nickname`,`status` FROM `app_member` WHERE `account` = 'admin' AND `pass` = 'e8567dbe206e0240e06f1edde026be3a' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_auth_group` [ RunTime:0.0049s ]
+SQL: SELECT `id`,`rules` FROM `app_auth_group` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_auth_rule` [ RunTime:0.0059s ]
+SQL: SELECT `id`,`pid`,`top_id`,`sort`,`level`,`name`,`title`,`position` FROM `app_auth_rule` WHERE `id` IN ('60','61','64','73','72','71','63','68','69','70','62','67','66','65','75','77','82','80','76','79','78','53','54','55','83','59','58','57','56','11','12','15','21','26','25','24','14','20','19','22','23','35','13','18','17','16','34','33') ORDER BY sort desc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005859s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005859s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2019-01-21T09:20:12+08:00 ] 127.0.0.1 /Admin/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0029s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0039s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.021484s ]
+INFO: [ app_init ] --END-- [ RunTime:1.022461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001953s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001953s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined variable: page D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 131 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012696s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012696s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000976s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000976s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000977s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000977s ]
+
+[ 2019-01-21T09:20:16+08:00 ] 127.0.0.1 /admin/user/company
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0039s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0039s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.027343s ]
+INFO: [ app_init ] --END-- [ RunTime:1.028320s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000976s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001953s ]
+SQL: SHOW COLUMNS FROM `app_user` [ RunTime:0.0039s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_user` WHERE `type` = 2 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: page D:\www\guangjian\Application\Admin\Controller\CommonController.class.php 第 289 行.
+SQL: SELECT * FROM `app_user` WHERE `type` = 2 ORDER BY id desc LIMIT 0,20   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010742s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010742s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000976s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000976s ]
+
+[ 2019-01-21T09:20:45+08:00 ] 127.0.0.1 /admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0029s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0039s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.019531s ]
+INFO: [ app_init ] --END-- [ RunTime:1.020508s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000976s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000977s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001953s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined variable: page D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 131 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012695s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012695s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000977s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000977s ]
+

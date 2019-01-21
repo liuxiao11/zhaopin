@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/Public/css/jquery.pagination.css"/>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/area.css"/>
+    <link rel="stylesheet" href="/Public/css/my.css"/>
+</head>
+<body>
+<include file="public/person_header" />
+<div class="center-contain">
+    <div class="container clearfloat">
+        <include file="public/headhunt_left" />
+        <div class="content-rt">
+            <h3>发布信息</h3>
+            <div class="form-box">
+                <form action="" method="post">
+                    <div class="radio-box">
+                        <a href="/publish/invite_head_type.html" class="job active">兼职招聘</a>
+                        <a href="/headhunt/invite_full.html" class="job">全职招聘</a>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label>姓名</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="text" name="call" placeholder="请输入姓名"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label>公司名称</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="text" name="company_name" placeholder="请输入公司名称"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label for="c_tel">价格</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <div class="selector s">
+                                <select name="salary" style="width: 200px;">
+                                    <?php foreach($salary as $k=>$v){ ?>
+                                    <option value="{$k}">{$v}</option>
+                                    <?php } ?>
+                                </select>
+                                <i><img src="/Public/images/down.jpg" alt=""/></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label>公司所在地</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <div id="city">
+                                <select class="prov" name="company_province" style="width:auto;">
+                                    <option value="0">请选择</option>
+                                    <?php foreach($province_list as $k=>$v){ ?>
+                                    <option value="{$v.id}">{$v.name}</option>
+                                    <?php } ?>
+                                </select>&nbsp;
+                                <select class="city" name="company_city" style="width:auto;"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label for="special">详细说明</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <textarea name="intro" id="special" placeholder="最多可输入100个字符"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label for="c_tel">手机号码</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="text" id="c_tel" name="phone" placeholder="请输入手机号码"/>
+                        </div>
+                    </div>
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label for="c_code">验证码</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="text" id="c_code" placeholder="请输入手机验证码"/>
+                            <button class="get-code">获取手机验证码</button>
+                        </div>
+                    </div>
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf" style="height: 1px;">
+                        </div>
+                        <div class="col-rt lf">
+                            <button class="get-code" id="publish_01">发布</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--验证内容-->
+<div class="false">
+    <div class="false_text">
+        <div class="close" id="close"><img src="/Public/images/delete.png" alt=""/></div>
+        <p></p>
+    </div>
+</div>
+<include file="public/footer" />
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<script src="/Public/js/my.js"></script>
+<script>
+    $('.prov').change(function(){
+        var province = $(this).val();
+        $('.city').empty();
+        if(province == 0){
+            return ;
+        }
+
+        $.post("/admin/ajax/ajax_city",{province:province},function(data){
+            if(data.code == 1){
+                alert(data.message);
+                return ;
+            }
+
+            $('.city').append("<option value=\"0\">请选择</option>");
+            for(var i=0;i<data.data.length;i++){
+                $('.city').append("<option value=\""+data.data[i].id+"\">"+data.data[i].name+"</option>");
+            }
+        },'json')
+    })
+</script>
+</body>
+</html>

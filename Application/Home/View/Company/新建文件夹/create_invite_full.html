@@ -1,0 +1,34 @@
+<form action="" method="post">
+    全职招聘 <br/><br/>
+    职位名称 <input type="text" name="work_name" /><br/><br/>
+    职位类别:
+    <select name="full_position" id="">
+        <?php foreach($full_position as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+    工作年限:
+    <select name="work_years" id="">
+        <?php foreach($work_years as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+    最高学历：
+    <select name="education" id="">
+        <?php foreach($education as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+    职位描述：
+    <textarea name="content" id="" cols="30" rows="10"></textarea><br/><br/>
+    工作地址: <input type="text" name="work_province" /><input type="text" name="work_city" /><br/><br/>
+    期望薪资:
+    <select name="salary" id="">
+        <?php foreach($salary as $k=>$v){ ?>
+        <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select><br/><br/>
+    手机号 <input type="text" name="phone" /><br/><br/>
+    <input type="submit"/>
+</form>
+<form action=""></form>

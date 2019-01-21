@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <title></title>
+</head>
+<body>
+<form id="uploadForm" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="aa" value="231" />
+    文件:<input id="file" type="file" name="file[]" multiple/>
+</form>
+<img class="bb" src="a.jpg" alt=""/>
+<button id="upload">上传文件</button>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $("#file").change(function () {
+            var formData = new FormData($('#uploadForm')[0]);
+            $.ajax({
+                type: 'post',
+                url: "/admin/news/upload",
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                dataType : "json"
+            }).success(function (data) {
+
+            }).error(function () {
+                alert("上传失败");
+            });
+        });
+    });
+</script>
+</html>

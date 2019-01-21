@@ -1,0 +1,38 @@
+<include file="public/header"/>
+<a href="/admin/rule/add_member" style="text-decoration:none;"><span style="display:inline-block;width:80px;height:30px;line-height: 30px;background-color: rgb(19,100,157);border-radius: 3px;text-align: center;color:white;">添加</span></a>
+<div style="height:20px;"></div>
+<table class="bjw_table">
+    <tr>
+        <th>id</th>
+        <th>名称</th>
+        <th>用户名</th>
+        <th>分组</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($member_list as $k=>$v){ ?>
+    <tr mid="{$v.id}">
+        <td>{$v.id}</td>
+        <td>{$v.nickname}</td>
+        <td>{$v.account}</td>
+        <td>{$v.group_name}</td>
+        <td>
+            <a class="a-group-rule" href="/admin/rule/member_power/mid/{$v.id}" title="权限"></a>
+            <a class="a-edit" href="/admin/rule/edit_member/mid/{$v.id}" title="修改"></a>
+            <a class="a-del" href="javascript:void(0);" title="删除"></a>
+        </td>
+    </tr>
+    <?php } ?>
+</table>
+<script>
+    //删除管理员
+    $('.a-del').click(function(){
+        var mid = $(this).parent().parent().attr('mid');
+        if(!confirm('确认删除吗')){
+            return ;
+        }
+
+        window.location.href = '/admin/rule/del_member/mid/'+mid;
+    })
+
+</script>
+<include file="public/footer"/>

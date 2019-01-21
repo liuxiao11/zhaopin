@@ -1,0 +1,37 @@
+全职招聘-招聘信息-详情 <br/><br/>
+<div style="border:1px solid red;">
+    <form action="" method="post">
+        <input type="hidden" name="id" value="{$invite_info.id}" />
+        工作名称 <input type="text" name="work_name" value="{$invite_info.work_name}" /><br/><br/>
+        电话 <input type="text" name="phone" value="{$invite_info.phone}" /><br/><br/>
+        职位类别:
+        <select name="full_position" id="">
+            <?php foreach($full_position as $k=>$v){ ?>
+            <option <?php if($k==$invite_info['full_position']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php } ?>
+        </select><br/><br/>
+        工作年限:
+        <select name="work_years" id="">
+            <?php foreach($work_years as $k=>$v){ ?>
+            <option <?php if($k==$invite_info['work_years']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php } ?>
+        </select><br/><br/>
+        最高学历:
+        <select name="education" id="">
+            <?php foreach($education as $k=>$v){ ?>
+            <option <?php if($k==$invite_info['education']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php } ?>
+        </select><br/><br/>
+        <textarea name="content" id="" cols="30" rows="10">{$invite_info.content}</textarea><br/><br/>
+        工作地址
+        <input type="text" name="work_province" value="{$invite_info.work_province}" />
+        <input type="text" name="work_city" value="{$invite_info.work_city}" /><br/><br/>
+        期望薪资:
+        <select name="salary" id="">
+            <?php foreach($salary as $k=>$v){ ?>
+            <option <?php if($k==$invite_info['salary']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php } ?>
+        </select><br/><br/>
+        <input type="submit"/>
+    </form>
+</div>

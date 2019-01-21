@@ -1,0 +1,53 @@
+<include file="public/header"/>
+<form action="" method="post">
+    <table class="form_table">
+        <tr class="tr1">
+            <td class="td1">标题</td>
+            <td class="td2"><input class="in_text" type="text" name="title" /></td>
+            <td class="td3">* 输入标题</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">上级目录</td>
+            <td class="td2">
+                <select name="pid" id="">
+                    <option <?php if($get['rule_id'] == 0){echo 'selected';} ?> value="0">根目录</option>
+                    <?php foreach($key_rule_list as $k=>$v){ ?>
+                    <option <?php if($get['rule_id'] == $v['id']){echo 'selected';} ?> value="{$v.id}">{$v.title}</option>
+                    <?php foreach($v['children_two'] as $kk=>$vv){ ?>
+                    <option <?php if($get['rule_id'] == $vv['id']){echo 'selected';} ?> value="{$vv.id}">&nbsp;&nbsp;{$vv.title}</option>
+                    <?php foreach($vv['children_three'] as $kkk=>$vvv){ ?>
+                    <option <?php if($get['rule_id'] == $vvv['id']){echo 'selected';} ?> value="{$vvv.id}">&nbsp;&nbsp;&nbsp;&nbsp;{$vvv.title}</option>
+                    <?php } ?>
+                    <?php } ?>
+                    <?php } ?>
+                </select>
+            </td>
+            <td class="td3">* 选择上级目录</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">地址</td>
+            <td class="td2"><input class="in_text" type="text" name="name" /></td>
+            <td class="td3">* 模块/控制器/方法</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">排序</td>
+            <td class="td2"><input class="in_text" type="text" name="sort" /></td>
+            <td class="td3">降序排列(默认10)</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">按钮位置</td>
+            <td class="td2">
+                <input type="radio" name="position" value="list" style="vertical-align:middle;" />列表
+                <input type="radio" name="position" value="right" style="vertical-align:middle;" />右侧
+            </td>
+            <td class="td3"></td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1"></td>
+            <td class="td2"></td>
+            <td class="td3"><input class="submit" type="submit" value="确认" /></td>
+        </tr>
+    </table>
+</form>
+
+<include file="public/footer"/>

@@ -1,0 +1,27 @@
+<?php if($page){ ?>
+<div style="height:30px;"></div>
+<div style="width:600px;margin:0 auto;height:40px;line-height:40px;text-align: center;">
+    <?php if($page['max_page'] > 1){ ?>
+    <?php if($page['is_index']){ ?>
+    <a href="{$page.link}/page/1" style="display:inline-block;float:left;width:48px;height:24px;line-height:24px;text-align: center;background-color: #498DC5;text-decoration:none;position:relative;top:8px;color:white;border-radius: 3px;margin-left:10px;font-size:12px;">首页</a>
+    <?php } ?>
+    <?php if($page['is_last']){ ?>
+    <a href="{$page.link}/page/{$page['p'] - 1}" style="display:inline-block;float:left;width:60px;height:24px;line-height:24px;text-align: center;background-color: #498DC5;text-decoration:none;position:relative;top:8px;color:white;border-radius: 3px;margin-left:10px;font-size:12px;">上一页</a>
+    <?php } ?>
+    <?php foreach($page['page_list'] as $k=>$v){ ?>
+    <?php if($v == $page['p']){ ?>
+    <span style="display:inline-block;float:left;height:24px;line-height:24px;text-align: center;background-color: rgb(245,249,252);position:relative;top:8px;color:#333;margin-left:10px;font-size:12px;padding:0 12px;">{$v}</span>
+    <?php }else{ ?>
+    <a href="{$page.link}/page/{$v}" style="display:inline-block;float:left;height:24px;line-height:24px;text-align: center;background-color: #498DC5;text-decoration:none;position:relative;top:8px;color:white;border-radius: 3px;margin-left:10px;font-size:12px;padding:0 12px;">{$v}</a>
+    <?php } ?>
+    <?php } ?>
+    <?php if($page['is_next']){ ?>
+    <a href="{$page.link}/page/{$page['p'] + 1}" style="display:inline-block;float:left;width:60px;height:24px;line-height:24px;text-align: center;background-color: #498DC5;text-decoration:none;position:relative;top:8px;color:white;border-radius: 3px;margin-left:10px;font-size:12px;">下一页</a>
+    <?php } ?>
+    <?php if($page['is_end']){ ?>
+    <a href="{$page.link}/page/{$page.max_page}" style="display:inline-block;float:left;width:48px;height:24px;line-height:24px;text-align: center;background-color: #498DC5;text-decoration:none;position:relative;top:8px;color:white;border-radius: 3px;margin-left:10px;font-size:12px;">尾页</a>
+    <?php } ?>
+    <?php } ?>
+    &nbsp;&nbsp;&nbsp;&nbsp;共 {$page.count} 条记录
+</div>
+<?php } ?>

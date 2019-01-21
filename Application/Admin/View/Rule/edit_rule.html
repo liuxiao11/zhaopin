@@ -1,0 +1,36 @@
+<include file="public/header"/>
+<form action="" method="post">
+    <input type="hidden" name="id" value="{$rule_info.id}" />
+    <table class="form_table">
+        <tr class="tr1">
+            <td class="td1">标题</td>
+            <td class="td2"><input class="in_text" type="text" name="title" value="{$rule_info.title}" /></td>
+            <td class="td3">* 输入标题</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">地址</td>
+            <td class="td2"><input class="in_text" type="text" name="name" value="{$rule_info.name}" /></td>
+            <td class="td3">* 模块/控制器/方法</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">排序</td>
+            <td class="td2"><input class="in_text" type="text" name="sort" value="{$rule_info.sort}" /></td>
+            <td class="td3">降序排列(默认10)</td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1">按钮位置</td>
+            <td class="td2">
+                <input type="radio" name="position" value="list" <?php if($rule_info['position'] == 'list'){echo 'checked';} ?> style="vertical-align:middle;" />列表
+                <input type="radio" name="position" value="right" <?php if($rule_info['position'] == 'right'){echo 'checked';} ?> style="vertical-align:middle;" />右侧
+            </td>
+            <td class="td3"></td>
+        </tr>
+        <tr class="tr1">
+            <td class="td1"></td>
+            <td class="td2"></td>
+            <td class="td3"><input class="submit" type="submit" value="确认" /></td>
+        </tr>
+    </table>
+</form>
+
+<include file="public/footer"/>

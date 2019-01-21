@@ -1,0 +1,218 @@
+[ 2019-01-19T09:58:19+08:00 ] 127.0.0.1 /admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000976s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0078s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0059s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.125976s ]
+INFO: [ app_init ] --END-- [ RunTime:1.127929s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002930s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003907s ]
+
+[ 2019-01-19T09:58:20+08:00 ] 127.0.0.1 /Admin/sign/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0039s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.041992s ]
+INFO: [ app_init ] --END-- [ RunTime:1.042969s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000976s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001954s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002930s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000976s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000976s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029297s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029297s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000977s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000977s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000977s ]
+
+[ 2019-01-19T09:58:25+08:00 ] 127.0.0.1 /Admin/sign/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0039s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0039s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0010s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.021484s ]
+INFO: [ app_init ] --END-- [ RunTime:1.021484s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000976s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001953s ]
+SQL: SHOW COLUMNS FROM `app_member` [ RunTime:0.0068s ]
+SQL: SELECT `id`,`gid`,`account`,`tel`,`nickname`,`status` FROM `app_member` WHERE `account` = 'admin' AND `pass` = 'e8567dbe206e0240e06f1edde026be3a' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_auth_group` [ RunTime:0.0059s ]
+SQL: SELECT `id`,`rules` FROM `app_auth_group` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_auth_rule` [ RunTime:0.0059s ]
+SQL: SELECT `id`,`pid`,`top_id`,`sort`,`level`,`name`,`title`,`position` FROM `app_auth_rule` WHERE `id` IN ('60','61','64','73','72','71','63','68','69','70','62','67','66','65','75','77','82','80','76','79','78','53','54','55','83','59','58','57','56','11','12','15','21','26','25','24','14','20','19','22','23','35','13','18','17','16','34','33') ORDER BY sort desc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008789s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008789s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000977s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000977s ]
+
+[ 2019-01-19T09:58:28+08:00 ] 127.0.0.1 /Admin/index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0029s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0039s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.099609s ]
+INFO: [ app_init ] --END-- [ RunTime:1.100586s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000976s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000977s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001953s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined index: show_id D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 121 行.
+NOTIC: [8] Undefined variable: page D:\www\guangjian\data\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 131 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018555s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019531s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000977s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000977s ]
+
+[ 2019-01-19T11:24:25+08:00 ] 127.0.0.1 /admin/resume/part
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0029s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0010s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.021484s ]
+INFO: [ app_init ] --END-- [ RunTime:1.021484s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000976s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000977s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001953s ]
+SQL: SHOW COLUMNS FROM `app_resume_part` [ RunTime:0.0039s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_resume_part` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: page D:\www\guangjian\Application\Admin\Controller\CommonController.class.php 第 289 行.
+SQL: SELECT `id`,`name`,`phone`,`cert_province`,`cert_city`,`salary`,`job_title`,`cat_one`,`cat_two`,`status`,`create_time` FROM `app_resume_part` ORDER BY id desc LIMIT 0,20   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: work_city D:\www\guangjian\Application\Admin\Controller\ResumeController.class.php 第 43 行.
+NOTIC: [8] Undefined index: work_city D:\www\guangjian\Application\Admin\Controller\ResumeController.class.php 第 43 行.
+NOTIC: [8] Undefined index: work_city D:\www\guangjian\Application\Admin\Controller\ResumeController.class.php 第 43 行.
+SQL: SHOW COLUMNS FROM `app_city` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_city` WHERE `id` IN ('2',null)  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined offset: 502 D:\www\guangjian\Application\Admin\Controller\ResumeController.class.php 第 57 行.
+NOTIC: [8] Undefined offset: 514 D:\www\guangjian\Application\Admin\Controller\ResumeController.class.php 第 57 行.
+NOTIC: [8] Undefined offset: 501 D:\www\guangjian\Application\Admin\Controller\ResumeController.class.php 第 57 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011719s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011719s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000977s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000977s ]
+
+[ 2019-01-19T11:24:39+08:00 ] 127.0.0.1 /admin/resume/part
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0039s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0039s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0010s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.011719s ]
+INFO: [ app_init ] --END-- [ RunTime:1.012695s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000976s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001953s ]
+SQL: SHOW COLUMNS FROM `app_resume_part` [ RunTime:0.0039s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_resume_part` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: page D:\www\guangjian\Application\Admin\Controller\CommonController.class.php 第 289 行.
+SQL: SELECT `id`,`name`,`phone`,`cert_province`,`cert_city`,`salary`,`job_title`,`cat_one`,`cat_two`,`status`,`create_time` FROM `app_resume_part` ORDER BY id desc LIMIT 0,20   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: work_city D:\www\guangjian\Application\Admin\Controller\ResumeController.class.php 第 43 行.
+NOTIC: [8] Undefined index: work_city D:\www\guangjian\Application\Admin\Controller\ResumeController.class.php 第 43 行.
+NOTIC: [8] Undefined index: work_city D:\www\guangjian\Application\Admin\Controller\ResumeController.class.php 第 43 行.
+SQL: SHOW COLUMNS FROM `app_city` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_city` WHERE `id` IN ('2',null)  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined offset: 502 D:\www\guangjian\Application\Admin\Controller\ResumeController.class.php 第 57 行.
+NOTIC: [8] Undefined offset: 514 D:\www\guangjian\Application\Admin\Controller\ResumeController.class.php 第 57 行.
+NOTIC: [8] Undefined offset: 501 D:\www\guangjian\Application\Admin\Controller\ResumeController.class.php 第 57 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009766s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009766s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2019-01-19T11:28:28+08:00 ] 127.0.0.1 /admin/resume/part
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000976s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0039s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.021485s ]
+INFO: [ app_init ] --END-- [ RunTime:1.022461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000977s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001954s ]
+SQL: SHOW COLUMNS FROM `app_resume_part` [ RunTime:0.0039s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_resume_part` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: page D:\www\guangjian\Application\Admin\Controller\CommonController.class.php 第 289 行.
+SQL: SELECT `id`,`name`,`phone`,`cert_province`,`cert_city`,`salary`,`job_title`,`cat_one`,`cat_two`,`status`,`create_time` FROM `app_resume_part` ORDER BY id desc LIMIT 0,20   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_city` [ RunTime:0.0039s ]
+SQL: SELECT `id`,`name` FROM `app_city` WHERE `id` IN ('2','502','514','501')  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011719s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011719s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000976s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000976s ]
+

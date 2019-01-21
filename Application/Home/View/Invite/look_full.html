@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/jquery.pagination.css"/>
+    <link rel="stylesheet" href="/Public/css/swiper.min.css"/>
+    <link rel="stylesheet" href="/Public/css/my.css"/>
+    <link rel="stylesheet" href="/Public/css/inside.css"/>
+</head>
+<body>
+<include file="public/header" />
+<div class="main-box">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">兼职招聘</a></li>
+            <li><a href="#">建筑工程一建【江苏】</a></li>
+        </ul>
+    </div>
+    <div class="job-box">
+        <div class="container">
+            <div class="tit">{$invite_info.title}</div>
+            <div style="color: #999999">
+                <span class="addr"><img src="/Public/images/l_icon_03.png" alt=""/>全职地区：{$invite_info.work_province}-{$invite_info.work_city}</span>
+                <b>|</b>
+                <span>浏览：{$invite_info.scan}</span>
+                <b>|</b>
+                <span>更新时间：<?php echo date('Y-m-d H:i:s',$invite_info['create_time']); ?></span>
+            </div>
+            <div class="price">{$salary[$invite_info['salary']]}</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="detail-cont">
+            <div class="content clearfloat">
+                <div class="detail-left lf" style="padding-top: 0">
+                    <div class="introduce">
+                        <h3><img src="/Public/images/l_icon_07.png" alt=""/>职位信息</h3>
+                    </div>
+                    <ul class="basic-information clearfloat">
+                        <li>分类：<span>{$cat[$invite_info['cat']]}</span></li>
+                        <li>学历：<span>{$education[$invite_info['education']]}</span></li>
+                        <li>工作经验：<span>{$work_years[$invite_info['work_years']]}</span></li>
+                    </ul>
+                    <div class="introduce">
+                        <h3><img src="/Public/images/l_icon_16.png" alt=""/>其他说明</h3>
+                        <p style="width: 650px;">
+                            {$invite_info.intro}
+                        </p>
+                    </div>
+                    <a href="javascript:void(0);" class="btn">点击查看联系方式</a>
+                    <img src="/Public/images/in-a_07.jpg" alt=""/>
+                    <div class="introduce">
+                        <h3><img src="/Public/images/star_03.png" alt=""/>您可能感兴趣的职位信息</h3>
+                    </div>
+                    <ul class="jobs-cont clearfloat" style="padding-bottom: 0">
+                        <li>
+                            <a href="">
+                                <div class="tit">建筑工程-一建【江苏】</div>
+                                <div class="">
+                                    <span class="addr">江苏-常州</span>
+                                    <span style="color: #333">2.5年/年</span>
+                                </div>
+                                <div class="price">0.8-1.5万/1年</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="tit">建筑工程-一建【江苏】</div>
+                                <div class="">
+                                    <span class="addr">江苏-常州</span>
+                                    <span style="color: #333">2.5年/年</span>
+                                </div>
+                                <div class="price">0.8-1.5万/1年</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="tit">建筑工程-一建【江苏】</div>
+                                <div class="">
+                                    <span class="addr">江苏-常州</span>
+                                    <span style="color: #333">2.5年/年</span>
+                                </div>
+                                <div class="price">0.8-1.5万/1年</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="tit">建筑工程-一建【江苏】</div>
+                                <div class="">
+                                    <span class="addr">江苏-常州</span>
+                                    <span style="color: #333">2.5年/年</span>
+                                </div>
+                                <div class="price">0.8-1.5万/1年</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="tit">建筑工程-一建【江苏】</div>
+                                <div class="">
+                                    <span class="addr">江苏-常州</span>
+                                    <span style="color: #333">2.5年/年</span>
+                                </div>
+                                <div class="price">0.8-1.5万/1年</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="tit">建筑工程-一建【江苏】</div>
+                                <div class="">
+                                    <span class="addr">江苏-常州</span>
+                                    <span style="color: #333">2.5年/年</span>
+                                </div>
+                                <div class="price">0.8-1.5万/1年</div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="introduce">
+                        <h3><img src="/Public/images/l_03.png" alt=""/>知名企业</h3>
+                    </div>
+                    <div class="companies famous clearfloat">
+                        <div class="cell">
+                            <img src="/Public/images/c_03.jpg" alt=""/>
+                            <div class="c_introduce">
+                                <h4>安徽中龙投资集团有限公司</h4>
+                                <div class="scores">
+                                    <div class="praise">口碑：<span>686</span></div>
+                                    <div class="position">在招职位：<span>33</span></div>
+                                    <div class="ask">咨询：<span>1234</span></div>
+                                </div>
+                                <a href="" class="more">点击查看</a>
+                                <div class="c_logo">
+                                    <img src="/Public/images/c_logo_03.png" alt=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <img src="/Public/images/c_03.jpg" alt=""/>
+                            <div class="c_introduce">
+                                <h4>安徽中龙投资集团有限公司</h4>
+                                <div class="scores">
+                                    <div class="praise">口碑：<span>686</span></div>
+                                    <div class="position">在招职位：<span>33</span></div>
+                                    <div class="ask">咨询：<span>1234</span></div>
+                                </div>
+                                <a href="" class="more">点击查看</a>
+                                <div class="c_logo">
+                                    <img src="/Public/images/c_logo_03.png" alt=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <img src="/Public/images/c_03.jpg" alt=""/>
+                            <div class="c_introduce">
+                                <h4>安徽中龙投资集团有限公司</h4>
+                                <div class="scores">
+                                    <div class="praise">口碑：<span>686</span></div>
+                                    <div class="position">在招职位：<span>33</span></div>
+                                    <div class="ask">咨询：<span>1234</span></div>
+                                </div>
+                                <a href="" class="more">点击查看</a>
+                                <div class="c_logo">
+                                    <img src="/Public/images/c_logo_03.png" alt=""/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 60px;width: 100%"></div>
+                </div>
+                <div class="c_right rt">
+                    <div class="p-box">
+                        <img src="/Public/images/photo_03.jpg" alt=""/>
+                        <h5>{$user_info.nickname}</h5>
+                        <p>{$company_info.company_name}</p>
+                        <p><img src="/Public/images/l_icon_11.png" alt=""/>电话：{$company_info.tel}</p>
+                        <p><img src="/Public/images/l_icon_14.png" alt=""/>地址：{$company_info.province}-{$company_info.city}</p>
+                    </div>
+                    <div class="line"></div>
+                    <h3 class="t"><span>建筑资讯</span></h3>
+                    <ul class="slide-list">
+                        <li><a href="">建造师注册证书丢失丢失</a></li>
+                        <li><a href="">建造师注册证书丢失丢失</a></li>
+                        <li><a href="">建造师注册证书丢失丢失</a></li>
+                        <li><a href="">建造师注册证书丢失丢失</a></li>
+                        <li><a href="">建造师注册证书丢失丢失</a></li>
+                        <li><a href="">建造师注册证书丢失丢失</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="public/footer" />
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<script src="/Public/js/swiper-3.4.2.min.js"></script>
+<script src="/Public/js/inside.js"></script>
+</body>
+</html>

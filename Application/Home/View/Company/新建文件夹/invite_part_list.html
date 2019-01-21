@@ -1,0 +1,20 @@
+<table border="1">
+    <tr>
+        <th>发布时间</th>
+        <th>公司名称</th>
+        <th>职位类别</th>
+        <th>公司地址</th>
+        <th>薪资</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($invite_list as $k=>$v){ ?>
+    <tr>
+        <td><?php echo date("Y-m-d",$v['create_time']); ?></td>
+        <td>{$v.company_name}</td>
+        <td>{$position_one[$v['position_one']]}-{$position_two[$v['position_one']][$v['position_two']]}</td>
+        <td>{$v.company_province}-{$v.company_city}</td>
+        <td>{$v.salary}</td>
+        <td><a href="{:U('/home/company/invite_part_info',array('invite_id'=>$v['id']))}">查看</a>&nbsp;&nbsp;<a href="{:U('/home/company/del_invite_part',array('invite_id'=>$v['id']))}">删除</a></td>
+    </tr>
+    <?php } ?>
+</table>

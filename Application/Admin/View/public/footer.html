@@ -1,0 +1,85 @@
+</div>
+</body>
+</html>
+<script>
+    $(".left-2").toggle(
+        function () {
+            $('.left').hide();
+            $(this).css('left','0px');
+            $(this).html('>');
+            $('.right').css('left','13px');
+            $('.right-title').css('left','13px');
+        },
+        function () {
+            $('.left').show();
+            $(this).css('left','200px');
+            $(this).html('<');
+            $('.right').css('left','213px');
+            $('.right-title').css('left','213px');
+        }
+    );
+
+    $('.logout').mouseover(function(){
+        $(this).css('cursor','pointer');
+        $(this).css('background-color','rgb(15,96,153)');
+    }).mouseleave(function(){
+        $(this).css('background-color','rgb(73,141,197)');
+    });
+
+    $('.page a').mouseover(function(){
+        $(this).css('background','rgb(21,101,157)');
+    }).mouseleave(function(){
+        $(this).css('background','#498DC5');
+    });
+
+    $('.nav').mouseover(function(){
+        $(this).css('cursor','pointer');
+    });
+
+    $('.logout').click(function(){
+        if(!confirm('确认退出吗')){
+            return ;
+        }
+        window.location.href = '/admin/sign/logout';
+    });
+
+    $(".h1").toggle(function(){
+        $(this).parent().children('.h2').animate({height: 'toggle', opacity: 'toggle'});
+        $(this).children('b').css('background',"url('/Public/images/icon.png')  -92px -41px")
+    },function(){
+        $(this).parent().children('.h2').animate({height: 'toggle', opacity: 'toggle'}, "normal");
+        $(this).children('b').css('background',"url('/Public/images/icon.png')  -92px -50px")
+    });
+
+    $('.bjw_table tr').mouseover(function(){
+        $(this).children('th').css('background-color','rgb(255,245,173)');
+        $(this).children('td').css('background-color','rgb(255,245,173');
+    }).mouseleave(function(){
+        $(this).children('th').css('background-color','white');
+        $(this).children('td').css('background-color','white');
+    });
+
+    $('.form_table tr').mouseover(function(){
+        $(this).children('th').css('background-color','rgb(255,245,173)');
+        $(this).children('td').css('background-color','rgb(255,245,173');
+    }).mouseleave(function(){
+        $(this).children('th').css('background-color','white');
+        $(this).children('td').css('background-color','white');
+    });
+
+    var background_color = '';
+    $('.nav').click(function(){
+        var data_id = $(this).attr('data_id');
+        $('.nav').attr('class','nav');
+        $(this).attr('class','nav nav-active');
+        $('.left').attr('class','left');
+        $('#left_'+data_id).attr('class','left left-active');
+    })
+    $('.div').mouseover(function(){
+        background_color = $(this).css('background-color');
+        $(this).css('cursor','pointer');
+        $(this).css('background-color','white');
+    }).mouseleave(function(){
+        $(this).css('background-color',background_color);
+    });
+</script>

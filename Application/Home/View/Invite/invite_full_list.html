@@ -1,0 +1,76 @@
+<style>
+    .active{background-color:red;}
+</style>
+<div style="border:1px solid red;">
+    <p class="params_list" params="full_position" active="{$get['full_position']}">
+        职位类别：
+        <span class="filter <?php if(!$get['full_position']){echo 'active';} ?>" data_data="0">不限</span>
+        <?php foreach($full_position as $k=>$v){ ?>
+        <?php if($k > 0){ ?>
+        <span class="filter <?php if($get['full_position'] == $k){echo 'active';} ?>" data_data="{$k}">{$v}</span>
+        <?php } ?>
+        <?php } ?>
+    </p>
+
+    <p class="params_list" params="work_years" active="{$get['work_years']}">
+        工作年限：
+        <span class="filter <?php if(!$get['work_years']){echo 'active';} ?>" data_data="0">不限</span>
+        <?php foreach($work_years as $k=>$v){ ?>
+        <?php if($k > 0){ ?>
+        <span class="filter <?php if($get['work_years'] == $k){echo 'active';} ?>" data_data="{$k}">{$v}</span>
+        <?php } ?>
+        <?php } ?>
+    </p>
+
+    <p class="params_list" params="education" active="{$get['education']}">
+        学历：
+        <span class="filter <?php if(!$get['education']){echo 'active';} ?>" data_data="0">不限</span>
+        <?php foreach($education as $k=>$v){ ?>
+        <?php if($k > 0){ ?>
+        <span class="filter <?php if($get['education'] == $k){echo 'active';} ?>" data_data="{$k}">{$v}</span>
+        <?php } ?>
+        <?php } ?>
+    </p>
+</div>
+<table border="1">
+    <tr>
+        <th>工作名称</th>
+        <th>职位类别</th>
+        <th>工作年限</th>
+        <th>学历</th>
+        <th>发布时间</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach($invite_list as $k=>$v){ ?>
+    <tr>
+        <td>{$v.work_name}</td>
+        <td>{$full_position[$v['full_position']]}</td>
+        <td>{$work_years[$v['work_years']]}</td>
+        <td>{$education[$v['education']]}</td>
+        <td><?php echo date("Y-m-d",$v['create_time']); ?></td>
+        <td><a href="{:U('/home/invite/look_full',array('invite_id'=>$v['id']))}">浏览</a></td>
+    </tr>
+    <?php } ?>
+</table>
+<script type="text/javascript" src="/Public/js/jquery-1.8.3.min.js" ></script>
+<script>
+    $('.filter').click(function(){
+        var str = '';
+        var parent = $(this).parent().attr('params');
+        $('.params_list').each(function(){
+            var active = '';
+            active = $(this).attr('active');
+            var params = '';
+            params = $(this).attr('params');
+            if(params!=parent && active){
+                str += '/'+params+'/'+active;
+            }
+        })
+        if($(this).attr('data_data') != 0){
+            str += '/'+parent+'/'+$(this).attr('data_data');
+        }
+
+        str = '/home/invite/invite_full_list'+str;
+        window.location.href = str;
+    })
+</script>

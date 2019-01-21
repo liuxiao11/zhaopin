@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/Public/css/jquery.pagination.css"/>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/my.css"/>
+</head>
+<body>
+<include file="public/person_header" />
+<div class="center-contain">
+    <div class="container clearfloat">
+        <include file="public/company_left" />
+        <div class="content-rt">
+            <h3>我的简历</h3>
+            <div class="content">
+                <div class="count">
+                    <ul class="clearfloat">
+                        <li class="clearfloat">
+                            <img src="/Public/images/infor_03.png" alt="" class="lf"/>
+                            <div class="num lf">
+                                <p>企业查看</p>
+                                <p style="color: #ff4209">10</p>
+                            </div>
+                        </li>
+                        <li class="clearfloat">
+                            <img src="/Public/images/infor_05.png" alt="" class="lf"/>
+                            <div class="num lf">
+                                <p>中介查看</p>
+                                <p style="color: #ff4209">10</p>
+                            </div>
+                        </li>
+                        <li class="clearfloat">
+                            <img src="/Public/images/infor_07.png" alt="" class="lf"/>
+                            <div class="num lf">
+                                <p>投递职位</p>
+                                <p style="color: #ff4209">50</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="new-information">
+                    <div class="selector">
+                        <select name="class" id="class">
+                            <option value="0">类别</option>
+                            <option value="1">类别1</option>
+                        </select>
+                        <select name="area" id="area">
+                            <option value="0">地区</option>
+                            <option value="1">西城</option>
+                        </select>
+                        <select name="time" id="time">
+                            <option value="0">时间</option>
+                            <option value="1">今天</option>
+                        </select>
+                        <button>搜索</button>
+                    </div>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>发布时间</th>
+                            <th>公司名称</th>
+                            <th>薪资</th>
+                            <th>地区</th>
+                            <th>类型</th>
+                            <th>审核</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($invite_list as $k=>$v){ ?>
+                        <tr>
+                            <td><?php echo date("Y-m-d",$v['create_time']); ?></td>
+                            <td>{$v.company_name}</td>
+                            <td>{$v.salary}</td>
+                            <td>{$v.company_province}-{$v.company_city}</td>
+                            <td>{$cat_one[$v['cat_one']]}-{$cat_two[$v['cat_one']][$v['cat_two']]}</td>
+                            <td>{$status[$v['status']]}</td>
+                            <td>
+                                <a href="/company/edit_invite_part/id/{$v.id}">编辑</a>
+                                <a href="javascript:void(0);" class="del_part" invite_id="{$v.id}">删除</a>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>
+                    <!--分页器-->
+                    <include file="public/page" />
+                    <p class="cue"><span>*</span>有问题请联系客服：<span>400-000-1212</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="public/footer" />
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<script src="/Public/js/jquery.pagination.min.js"></script>
+<script src="/Public/js/my.js"></script>
+<script>
+    $('.del_part').click(function(){
+        if(!confirm('确认删除吗？')){
+            return ;
+        }
+
+        var invite_id = $(this).attr('invite_id');
+        window.location.href = '/company/del_part/invite_id/'+invite_id;
+    })
+</script>
+</body>
+</html>

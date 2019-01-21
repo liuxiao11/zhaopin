@@ -1,0 +1,25 @@
+兼职简历-我的简历-详情 <br/><br/>
+<form action="" method="post">
+    <input type="hidden" name="id" value="{$resume_info.id}" />
+    姓名 <input type="text" name="name" value="{$resume_info.name}" /><br/><br/>
+    性别 <input type="radio" name="sex" <?php if($resume_info['sex'] == 1){echo 'checked';} ?> value="1" />男&nbsp;&nbsp;<input type="radio" <?php if($resume_info['sex'] == 2){echo 'checked';} ?> name="sex" value="2" />女 <br/><br/>
+    联系电话 <input type="text" name="phone" value="{$resume_info.phone}" /><br/><br/>
+    出生日期 <input type="text" name="birthday" value="{$resume_info.birthday}" /><br/><br/>
+    证书所在地:
+    <input type="text" name="certificate_province" value="{$resume_info.certificate_province}" />
+    <input type="text" name="certificate_city" value="{$resume_info.certificate_city}" /><br/><br/>
+    期望薪资 <input type="text" name="salary" value="{$resume_info.salary}" /><br/><br/>
+    职位类别:
+    <select name="position_one" id="">
+        <?php foreach($position_one as $k=>$v){ ?>
+        <option <?php if($k==$resume_info['position_one']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select>
+    <select name="position_two" id="">
+        <?php foreach($position_two as $k=>$v){ ?>
+        <option <?php if($k==$resume_info['position_two']){echo 'selected';} ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+        <?php } ?>
+    </select>
+    <input type="submit"/>
+</form>
+<form action=""></form>

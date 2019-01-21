@@ -1,0 +1,216 @@
+[ 2019-01-19T09:58:22+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0039s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.064453s ]
+INFO: [ app_init ] --END-- [ RunTime:1.064453s ]
+
+[ 2019-01-19T11:27:20+08:00 ] 127.0.0.1 /sign/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0039s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0010s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.033203s ]
+INFO: [ app_init ] --END-- [ RunTime:1.034180s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000977s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: type D:\www\guangjian\data\Runtime\Cache\Home\5ef295a711cb63d807250cf3ab168224.php 第 42 行.
+NOTIC: [8] Undefined index: type D:\www\guangjian\data\Runtime\Cache\Home\5ef295a711cb63d807250cf3ab168224.php 第 44 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010742s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010742s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000976s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000976s ]
+
+[ 2019-01-19T11:27:23+08:00 ] 127.0.0.1 /home/sign/do_login?phone=admin&password=112112&type=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000977s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0029s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0010s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.016601s ]
+INFO: [ app_init ] --END-- [ RunTime:1.017578s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_user` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`type`,`phone`,`nickname`,`person`,`company`,`headhunting`,`delivery`,`status`,`create_time` FROM `app_user` WHERE `phone` = 'admin' AND `password` = 'e8567dbe206e0240e06f1edde026be3a' AND `type` = 3 LIMIT 1   [ RunTime:0.0029s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009766s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009766s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+
+[ 2019-01-19T11:27:30+08:00 ] 127.0.0.1 /home/sign/do_login?phone=13911074975&password=439940&type=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0039s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0039s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.017578s ]
+INFO: [ app_init ] --END-- [ RunTime:1.018554s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000977s ]
+SQL: SHOW COLUMNS FROM `app_user` [ RunTime:0.0039s ]
+SQL: SELECT `id`,`type`,`phone`,`nickname`,`person`,`company`,`headhunting`,`delivery`,`status`,`create_time` FROM `app_user` WHERE `phone` = '13911074975' AND `password` = 'a3a25e7edecca31dc81647f3534b9852' AND `type` = 3 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006836s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006836s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000976s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000976s ]
+
+[ 2019-01-19T11:27:32+08:00 ] 127.0.0.1 /home/headhunt/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0029s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.023438s ]
+INFO: [ app_init ] --END-- [ RunTime:1.023438s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000977s ]
+SQL: SHOW COLUMNS FROM `app_headhunt` [ RunTime:0.0039s ]
+SQL: SELECT `id`,`province`,`city` FROM `app_headhunt` WHERE `user_id` = 99 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_city` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_city` WHERE `id` IN ('2','503')  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019532s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019532s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2019-01-19T11:29:18+08:00 ] 127.0.0.1 /home/headhunt/invite_part_list
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0029s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.018554s ]
+INFO: [ app_init ] --END-- [ RunTime:1.018554s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_invite_part` [ RunTime:0.0039s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_invite_part` WHERE `user_id` = 99 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: page D:\www\guangjian\Application\Home\Controller\CommonController.class.php 第 136 行.
+SQL: SELECT * FROM `app_invite_part` WHERE `user_id` = 99 LIMIT 0,10   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000977s ]
+NOTIC: [8] Undefined variable: user_info D:\www\guangjian\data\Runtime\Cache\Home\98170be19bea44282f23fbc54fb2cb65.php 第 114 行.
+NOTIC: [8] Undefined variable: user_info D:\www\guangjian\data\Runtime\Cache\Home\98170be19bea44282f23fbc54fb2cb65.php 第 116 行.
+NOTIC: [8] Undefined variable: invite_list D:\www\guangjian\data\Runtime\Cache\Home\98170be19bea44282f23fbc54fb2cb65.php 第 222 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\www\guangjian\data\Runtime\Cache\Home\98170be19bea44282f23fbc54fb2cb65.php 第 222 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022461s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022461s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2019-01-19T11:29:21+08:00 ] 127.0.0.1 /home/headhunt/invite_part_list
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000977s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0039s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0029s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0010s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.020508s ]
+INFO: [ app_init ] --END-- [ RunTime:1.022461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000976s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000976s ]
+SQL: SHOW COLUMNS FROM `app_invite_part` [ RunTime:0.0039s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_invite_part` WHERE `user_id` = 99 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: page D:\www\guangjian\Application\Home\Controller\CommonController.class.php 第 136 行.
+SQL: SELECT * FROM `app_invite_part` WHERE `user_id` = 99 LIMIT 0,10   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: user_info D:\www\guangjian\data\Runtime\Cache\Home\98170be19bea44282f23fbc54fb2cb65.php 第 114 行.
+NOTIC: [8] Undefined variable: user_info D:\www\guangjian\data\Runtime\Cache\Home\98170be19bea44282f23fbc54fb2cb65.php 第 116 行.
+NOTIC: [8] Undefined variable: invite_list D:\www\guangjian\data\Runtime\Cache\Home\98170be19bea44282f23fbc54fb2cb65.php 第 222 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\www\guangjian\data\Runtime\Cache\Home\98170be19bea44282f23fbc54fb2cb65.php 第 222 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015625s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2019-01-19T11:29:23+08:00 ] 127.0.0.1 /home/headhunt/invite_part_list
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `app_hooks` [ RunTime:0.0029s ]
+SQL: SELECT `name`,`addons` FROM `app_hooks`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `app_addons` [ RunTime:0.0020s ]
+SQL: SELECT `id`,`name` FROM `app_addons` WHERE `status` = 1 AND `name` IN ('Example1')  [ RunTime:0.0000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:1.019532s ]
+INFO: [ app_init ] --END-- [ RunTime:1.020508s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000977s ]
+SQL: SHOW COLUMNS FROM `app_invite_part` [ RunTime:0.0029s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `app_invite_part` WHERE `user_id` = 99 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: page D:\www\guangjian\Application\Home\Controller\CommonController.class.php 第 136 行.
+SQL: SELECT * FROM `app_invite_part` WHERE `user_id` = 99 LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000976s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000976s ]
+NOTIC: [8] Undefined variable: user_info D:\www\guangjian\data\Runtime\Cache\Home\98170be19bea44282f23fbc54fb2cb65.php 第 114 行.
+NOTIC: [8] Undefined variable: user_info D:\www\guangjian\data\Runtime\Cache\Home\98170be19bea44282f23fbc54fb2cb65.php 第 116 行.
+NOTIC: [8] Undefined variable: invite_list D:\www\guangjian\data\Runtime\Cache\Home\98170be19bea44282f23fbc54fb2cb65.php 第 222 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\www\guangjian\data\Runtime\Cache\Home\98170be19bea44282f23fbc54fb2cb65.php 第 222 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014648s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014648s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000977s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000976s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000976s ]
+

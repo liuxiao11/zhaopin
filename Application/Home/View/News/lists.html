@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{$news_type[$get['type']]}</title>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/jquery.pagination.css"/>
+    <link rel="stylesheet" href="/Public/css/my.css"/>
+    <link rel="stylesheet" href="/Public/css/inside.css"/>
+</head>
+<body>
+<include file="public/header" />
+<div class="main-box">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">资讯</a></li>
+        </ul>
+        <div class="nav">
+            <?php foreach($news_type as $k=>$v){ ?>
+            <a href="/news/lists/type/{$k}.html" <?php if($get['type'] == $k){echo "class=\"active\"";} ?>>{$v}</a>
+            <?php } ?>
+        </div>
+        <div class="slip"></div>
+        <div class="section" style="padding-left: 0;">
+            <div class="companies clearfloat" style="padding-top: 0">
+                <div class="c_left lf" style="padding-left:40px;">
+                    <ul class="information-content">
+                        <?php foreach($news_list as $k=>$v){ ?>
+                        <li class="clearfloat">
+                            <div class="img-box lf"><a href="/news/show/id/{$v.id}.html"><img src="{$v.img}" style="width:210px;height:117px;"/></a></div>
+                            <div class="information-link lf">
+                                <h4><a href="/news/show/id/{$v.id}.html">{$v.title}</a></h4>
+                                <div>
+                                    <span>{$v.author}</span>
+                                    <span><?php echo date("Y-m-d",$v['create_time']); ?></span>
+                                </div>
+                                <p class="txt">{$v.description}</p>
+                                <div class="div1" style="text-align: right">
+                                    <a href="/news/show/id/{$v.id}.html">{$news_type[$get['type']]}</a>
+                                </div>
+                            </div>
+                        </li>
+                        <?php } ?>
+                    </ul>
+                </div>
+                <div class="c_right rt">
+                    <img src="/Public/images/slide_03.jpg" alt=""/>
+                    <div class="line"></div>
+                    <h3 class="t"><span>建筑资讯</span></h3>
+                    <ul class="slide-list">
+                        <li><a href="">建造师注册证书丢失丢失</a></li>
+                        <li><a href="">建造师注册证书丢失丢失</a></li>
+                        <li><a href="">建造师注册证书丢失丢失</a></li>
+                        <li><a href="">建造师注册证书丢失丢失</a></li>
+                        <li><a href="">建造师注册证书丢失丢失</a></li>
+                        <li><a href="">建造师注册证书丢失丢失</a></li>
+                    </ul>
+                    <div class="line"></div>
+                    <h3 class="t"><span>热招职位</span></h3>
+                    <ul class="hot-job">
+                        <li>
+                            <a href="">
+                                <h5>上海歆瑞商务有限公司</h5>
+                                <p class="clearfloat">
+                                    <span>江苏-常州</span>
+                                    <span class="rt">0.8-1.5万/1年</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <h5>上海歆瑞商务有限公司</h5>
+                                <p class="clearfloat">
+                                    <span>江苏-常州</span>
+                                    <span class="rt">0.8-1.5万/1年</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <h5>上海歆瑞商务有限公司</h5>
+                                <p class="clearfloat">
+                                    <span>江苏-常州</span>
+                                    <span class="rt">0.8-1.5万/1年</span>
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <img src="/Public/images/img_23.jpg" alt=""/>
+                </div>
+
+            </div>
+            <!--分页器-->
+            <include file="public/page" />
+        </div>
+    </div>
+</div>
+<include file="public/footer" />
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<script src="/Public/js/jquery.pagination.min.js"></script>
+<script src="/Public/js/inside.js"></script>
+</body>
+</html>

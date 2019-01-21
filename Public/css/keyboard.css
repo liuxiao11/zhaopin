@@ -1,0 +1,25 @@
+* {
+  padding:0;
+  margin:0;
+}
+body {
+  background:#fff;
+  position: relative;
+}
+th, td {
+  border:1px solid #ccc;
+  padding:2px 0;
+  text-align:center;
+}
+td {
+  cursor:pointer
+}
+#keyboard{
+  border:1px solid #999;
+  padding:1px;
+  display:none;
+
+}
+.num {
+  color:blue;
+}

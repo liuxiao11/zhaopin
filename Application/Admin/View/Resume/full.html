@@ -1,0 +1,47 @@
+<include file="public/header"/>
+<table class="bjw_table" style="width:1200px;">
+    <tr>
+        <th>id</th>
+        <th>姓名</th>
+        <th>手机号</th>
+        <th>职位类别</th>
+        <th>工作所在地</th>
+        <th>薪资</th>
+        <th>状态</th>
+        <th>创建时间</th>
+    </tr>
+    <?php foreach($resume_list as $k=>$v){ ?>
+    <tr resume_id="{$v.id}">
+        <td>{$v.id}</td>
+        <td>{$v.name}</td>
+        <td>{$v.phone}</td>
+        <td>{$cat[$v['cat']]}</td>
+        <td>{$v.work_province}-{$v.work_city}</td>
+        <td>{$v.salary}</td>
+        <td>
+            <span class="status"><input type="radio" class="goods_status" value="1" <?php if($v['status'] == 1){echo 'checked';} ?> />未审核</span>
+            &nbsp;&nbsp;
+            <span class="status"><input type="radio" class="goods_status" value="2" <?php if($v['status'] == 2){echo 'checked';} ?> />已审核</span>
+        </td>
+        <td>
+            <?php echo date("Y-m-d H:i:s",$v['create_time']); ?>
+        </td>
+    </tr>
+    <?php } ?>
+</table>
+<script>
+    //上架下架
+    $('.status').click(function(){
+        var resume_id = $(this).parent().parent().attr('resume_id');
+        $(this).parent().children('.status').children('input').removeAttr('checked');
+        $(this).children('input').attr("checked",'true');
+        var value = $(this).children('input').val();
+        $.post("/admin/ajax/edit_resume",{type:2,resume_id:resume_id,params:'status',value:value},function(data){
+            if(data.code == 1){
+                alert(data.message);
+                location.reload();
+            }
+        },'json');
+    });
+</script>
+<include file="public/footer"/>

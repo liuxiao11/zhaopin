@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/Public/css/jquery.pagination.css"/>
+    <link rel="stylesheet" href="/Public/css/common.css"/>
+    <link rel="stylesheet" href="/Public/css/area.css"/>
+    <link rel="stylesheet" href="/Public/css/my.css"/>
+</head>
+<body>
+<include file="public/person_header" />
+<div class="center-contain">
+    <div class="container clearfloat">
+        <include file="public/left" />
+        <div class="content-rt">
+            <h3>个人资料</h3>
+            <div class="form-box">
+                <form action="" method="post">
+                    <input type="hidden" name="id" value="{$person_info.id}"/>
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label>姓名</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="text" name="name" value="{$person_info.name}" placeholder="请输入姓名"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label>身份证</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="text" name="id_card" value="{$person_info.id_card}" placeholder="请输入姓名"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label>性别</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <input type="radio" id="rencai" name="sex" value="1" class="regular-radio regular-checkbox" <?php if($person_info['sex'] == 1){echo 'checked';} ?> />
+                            <label for="rencai"></label>男
+                            <input type="radio" id="jianqi" name="sex" value="2" class="regular-radio regular-checkbox" <?php if($person_info['sex'] == 2){echo 'checked';} ?> />
+                            <label for="jianqi"></label>女
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label>所在地区</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <div id="city">
+                                <select class="prov" name="province" style="width:auto;">
+                                    <option value="0">请选择</option>
+                                    <?php foreach($province_list as $k=>$v){ ?>
+                                    <option value="{$v.id}" <?php if($person_info['province'] == $v['id']){echo 'selected';} ?>>{$v.name}</option>
+                                    <?php } ?>
+                                </select>&nbsp;
+                                <select class="city" name="city" style="width:auto;">
+                                    <option value="0">请选择</option>
+                                    <?php foreach($city_list as $k=>$v){ ?>
+                                    <option value="{$v.id}" <?php if($v['id'] == $person_info['city']){echo 'selected';} ?>>{$v.name}</option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf">
+                            <label>个人简介</label>
+                        </div>
+                        <div class="col-rt lf">
+                            <textarea name="intro">{$person_info.intro}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfloat">
+                        <div class="col-lf lf" style="height: 1px;">
+                        </div>
+                        <div class="col-rt lf">
+                            <button class="get-code" id="publish_01">发布</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--验证内容-->
+<div class="false">
+    <div class="false_text">
+        <div class="close" id="close"><img src="/Public/images/delete.png" alt=""/></div>
+        <p></p>
+    </div>
+</div>
+<include file="public/footer" />
+<script src="/Public/js/jquery-1.11.3.js"></script>
+<script src="/Public/js/my.js"></script>
+<script>
+    $('.prov').change(function(){
+        var province = $(this).val();
+        $('.city').empty();
+        if(province == 0){
+            return ;
+        }
+
+        $.post("/admin/ajax/ajax_city",{province:province},function(data){
+            if(data.code == 1){
+                alert(data.message);
+                return ;
+            }
+
+            $('.city').append("<option value=\"0\">请选择</option>");
+            for(var i=0;i<data.data.length;i++){
+                $('.city').append("<option value=\""+data.data[i].id+"\">"+data.data[i].name+"</option>");
+            }
+        },'json')
+    })
+</script>
+</body>
+</html>
